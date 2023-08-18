@@ -11,10 +11,29 @@
 </head>
 
 <body>
-    <div class="container">
+    <header class="navbar">
+        <nav>
+            <div class="left-content left-align">
+                <a href="#">Home</a>
+            </div>
+            <div class="main-title center-align">
+                <h1>Destinations In Time</h1>
+            </div>
+            <ul class="right-content">
+                <!-- {% if user.is_authenticated %} -->
+                <!-- will re-implement once authentication works -->
+                    <li><a href="#">My Itinerary</a></li>
+                <!-- {% else %} -->
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Log In</a></li>
+                <!-- {% endif %} -->
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
 </body>
 
 </html>

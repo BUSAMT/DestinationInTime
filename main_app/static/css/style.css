@@ -1,3 +1,15 @@
-/* body {
-  background-color: green;
-} */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(44, 44, 44);
+  color: goldenrod;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+a {
+  color: rgb(117, 198, 230);
+}
