@@ -22,10 +22,11 @@
             <ul class="right-content">
                 <!-- {% if user.is_authenticated %} -->
                 <!-- will re-implement once authentication works -->
-                    <li><a href="#">My Itinerary</a></li>
+                    <li><a href="/itins/">My Itineraries</a></li>
                 <!-- {% else %} -->
                     <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{% url 'logout' %}">Log In</a></li>
+                    <li><a href="{% url 'login' %}">Log Out</a></li>
                 <!-- {% endif %} -->
             </ul>
         </nav>
