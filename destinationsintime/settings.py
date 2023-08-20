@@ -119,8 +119,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # User log in / log out
-# LOGIN_REDIRECT_URL = N/A using {{ next }} 
-
+# need to check if you still need a default even if you are using {{ next }}
+LOGIN_REDIRECT_URL = '/itins/'
 LOGIN_REDIRECT_URL = '/' 
 
 # Default primary key field type

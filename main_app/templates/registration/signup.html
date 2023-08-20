@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Placeholder for Shaun</h1>
+
+<!-- only displays if there is a message as its set to an empty ''-->
+<p class="red-text">{{ error_message }}</p>
+
+<!-- not sure if you wanted to change the form outline 
+    but I think the form displayed a paragraph looks the best -->
+<form method="POST" action="{% url 'signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class="btn" value="Sign Up">
+</form>
+
+{% endblock %}

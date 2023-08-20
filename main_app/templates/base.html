@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- shaun to add favicon -->
+    <link rel="icon" href="" type="image/x-icon">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
@@ -24,9 +26,9 @@
                 <!-- will re-implement once authentication works -->
                     <li><a href="/itins/">My Itineraries</a></li>
                 <!-- {% else %} -->
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="{% url 'logout' %}">Log In</a></li>
-                    <li><a href="{% url 'login' %}">Log Out</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
                 <!-- {% endif %} -->
             </ul>
         </nav>
