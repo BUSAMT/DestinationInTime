@@ -1,11 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
-from django.contrib.auth.models import User
-
-# Create your models here.
-
-#
-=======
 from django.urls import reverse
 from django.contrib.auth.models import User
 # user model is built in within django, so needs to be imported correctly
@@ -82,4 +75,3 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo for destination_id: {self.destination_id} @{self.url}"
->>>>>>> e906957 (initial Gama commit)
