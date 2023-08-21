@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Models
-from .models import Destination, Itinerary, Chose_dest, Era, Photo
+from .models import Destination, Itinerary, Stop, Era, Photo
 
 # AB - home view
 def home (request):
