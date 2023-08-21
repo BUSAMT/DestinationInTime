@@ -44,7 +44,7 @@ class Itinerary(models.Model):
         return f"Journey from {self.init_travel_date} to {self.end_travel_date}"
 
     def get_absolute_url(self):
-        return reverse('itins_detail', kwargs={'itinerary_id': self.id})
+        return reverse('itins_detail', kwargs={'itin_id': self.id})
     
 
 
