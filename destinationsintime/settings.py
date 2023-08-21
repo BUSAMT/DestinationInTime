@@ -113,11 +113,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Australia/Sydney'
 
 USE_I18N = True
 
 USE_TZ = True
+
+DATE_INPUT_FORMATS = [
+    '%Y-%m-%d',     # Year-Month-Day (e.g., 2023-08-25)
+    '%m/%d/%Y',     # Month/Day/Year (e.g., 08/25/2023)
+    '%m %d %Y',     # Custom format with spaces (e.g., 08 25 2023)
+]
 
 
 # Static files (CSS, JavaScript, Images)
