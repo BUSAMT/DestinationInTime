@@ -7,13 +7,18 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Models
 from .models import Destination, Itinerary, Stop, Era, Photo
+# Import the mixin for class-based views
+from django.contrib.auth.mixins import LoginRequiredMixin
+# Import the login_required decorator
+from django.contrib.auth.decorators import login_required
 
 # AB - home view
 def home (request):
     return render(request, 'home.html')
 
-# ------Itineraries (/itins/)--------------- 
-# Itins_index 
+# ------Itineraries (/itins/)---------------
+# Itins_index
+@login_required 
 def itins_index(request):
   # Itins for logged in user
   itins = Itinerary.objects.filter(user=request.user)
@@ -22,6 +27,7 @@ def itins_index(request):
   })
 
 # Itins_Detail
+@login_required 
 def itins_detail(request, itin_id):
   itin = Itinerary.objects.get(id=itin_id)
   # list of 'stops' associated with the an individual 'itinerary'
@@ -33,7 +39,7 @@ def itins_detail(request, itin_id):
   })
 
 # createView
-class ItinCreate(CreateView):
+class ItinCreate(LoginRequiredMixin, CreateView):
   model = Itinerary
   fields = ['init_name',
             'itin_description',
@@ -49,7 +55,7 @@ class ItinCreate(CreateView):
     return super().form_valid(form)
 
 # updateView
-class ItinUpdate(UpdateView):
+class ItinUpdate(LoginRequiredMixin, UpdateView):
   model = Itinerary
   fields = ['init_name',
             'itin_description',
@@ -59,7 +65,7 @@ class ItinUpdate(UpdateView):
             ]
 
 # deleteView
-class ItinDelete(DeleteView):
+class ItinDelete(LoginRequiredMixin, DeleteView):
   model = Itinerary
   success_url = '/itins'
 

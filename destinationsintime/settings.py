@@ -132,7 +132,6 @@ DATE_INPUT_FORMATS = [
 STATIC_URL = 'static/'
 
 # User log in / log out
-# need to check if you still need a default even if you are using {{ next }}
 LOGIN_REDIRECT_URL = '/itins/'
 LOGOUT_REDIRECT_URL = '/'
 
