@@ -4,8 +4,6 @@ from datetime import date
 from django.contrib.auth.models import User
 # user model is built in within django, so needs to be imported correctly
 
-
-
 # Destination model
 class Destination(models.Model):
     dest_name = models.CharField(max_length=150)
@@ -19,19 +17,27 @@ class Destination(models.Model):
 
     def get_absolute_url(self):
         return reverse('dest_detail', kwargs={'pk': self.id})
+    
+
+# Era model
+class Era(models.Model):
+    era_name = models.CharField(max_length=250)
+    era_peroid = models.CharField(max_length=200)
+    era_description = models.TextField(max_length=2000)
+    # M:M with Era
+    destination = models.ManyToManyField(Destination)
+
+    def __str__(self):
+        return self.era_name
+
 
 #  Itinerary model 
 class Itinerary(models.Model):
     init_travel_date = models.DateField("Starting journey date")
     end_travel_date = models.DateField("Ending journey date")
-
-    # initial-end travel date if not a
     user_budget = models.IntegerField()
     itin_description = models.TextField(max_length=3000)
-
-    destinations = models.ManyToManyField(Destination)
-
-    chose_dest = models.ForeignKey('Chose_dest', on_delete=models.CASCADE, related_name='itin_for')
+# user model built within django
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -43,14 +49,16 @@ class Itinerary(models.Model):
 
 
 # Chosen destination model
-class Chose_dest(models.Model):
+class Stop(models.Model):
     dest_name = models.CharField(max_length=150)
     dest_description = models.CharField(max_length=3000)
     init_date_at_dest = models.DateField('Starting date at destination')
     end_date_at_dest = models.DateField('Ending date at destination')
     comments = models.TextField(max_length=3000)
-
-    itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE, related_name='chosen_destin')
+# O:M with destination
+    destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='stop_destin')
+# O:M with itinerary
+    itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE, related_name='Itinerary_plan')
 
     def __str__(self):
         return f"{self.dest_name} from {self.init_date_at_dest} to {self.end_date_at_dest}"
@@ -60,19 +68,6 @@ class Chose_dest(models.Model):
     
     class Meta:
         ordering = ['-init_date_at_dest']
-
-
-# Era model
-class Era(models.Model):
-    era_name = models.CharField(max_length=250)
-    era_peroid = models.CharField(max_length=200)
-    era_description = models.TextField(max_length=2000)
-
-    destinations = models.ManyToManyField(Destination)
-
-    def __str__(self):
-        return self.era_name
-
 
 
 class Photo(models.Model):
