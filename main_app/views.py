@@ -24,17 +24,25 @@ def itins_index(request):
 # Itins_Detail
 def itins_detail(request, itinerary_id):
   itin = Itinerary.objects.get(id=itinerary_id)
+  # list of 'stops' associated with the an individual 'itinerary'
+  stops_a_user_has_added = itin.stops.all().values_list('id')
 
   return render(request, 'itins/detail.html', {
-    'itins': itin
-    # pass through destination
-    #  
+    'itin': itin,
+    'stops': stops_a_user_has_added
   })
 
 # createView
 class ItinCreate(CreateView):
   model = Itinerary
-  field = '__all__'
+  fields = '__all__'
+
+  #overriding CBV properties to assign a user to a itinerary 
+  def form_valid(self, form):
+    # form.instance is the unsaved itin object / self.request.user is the logged in user object
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
 
 # updateView
 class ItinUpdate(UpdateView):
@@ -45,6 +53,9 @@ class ItinUpdate(UpdateView):
 class ItinDelete(DeleteView):
   model = Itinerary
   success_url = '/itins'
+
+# ------Stops (/itins/)--------------- 
+
 
 #---------User--------------------------------
 # Using Joel's updated way so that the username is prefilled in if error
