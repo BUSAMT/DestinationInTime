@@ -77,6 +77,10 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
   success_url = '/itins'
 
 # ------Stops (/itins/)--------------- 
+@login_required
+def add_a_spot(request, itin_id):
+  pass
+
 
 
 #---------User--------------------------------
