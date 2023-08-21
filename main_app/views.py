@@ -76,3 +76,9 @@ def signup(request):
 
 # --------Destination (/dests/)---------------- 
 
+def destinations_index(request, era_id):
+  era = Era.objects.get(id=era_id)
+  destinations = era.destination.all()
+  return render(request, 'destinations/index.html', {
+    'destinations': destinations,
+  })
