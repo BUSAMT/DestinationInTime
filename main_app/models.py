@@ -9,8 +9,10 @@ class Destination(models.Model):
     dest_name = models.CharField("Name",max_length=150)
     dest_description = models.TextField("Description",max_length=3000)
     dest_address = models.CharField("Address",max_length=300)
-    dest_latitude = models.IntegerField("Latitude")
-    dest_longitude = models.IntegerField("Longitude")
+    # latitude and longitud can be negative and positive numbers with decimals
+    dest_latitude = models.DecimalField("Latitude", max_digits=19, decimal_places=10)
+    dest_longitude = models.DecimalField("Longitude", max_digits=19, decimal_places=10)
+    # please don't display this on the rendering page, that info will be for maps API
     dest_country = models.CharField("Country",max_length=100)
     price_range = models.CharField("Price Range", max_length=100)
 

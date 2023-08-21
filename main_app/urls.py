@@ -1,5 +1,8 @@
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 from . import views
+from django.urls import path, reverse_lazy
+from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
@@ -10,6 +13,10 @@ urlpatterns = [
     path('itins/create/', views.ItinCreate.as_view(), name='itins_create'),
     path('itins/<int:pk>/update/', views.ItinUpdate.as_view(), name='itins_update'),
     path('itins/<int:pk>/delete/', views.ItinDelete.as_view(), name='itins_delete'),
+# path to head directly to the admin site.
+    path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
+    
+    
 
     # user sign up -  /accounts
     path('accounts/signup/', views.signup, name='signup'),

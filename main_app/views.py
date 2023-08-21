@@ -1,3 +1,8 @@
+# the following imports are for AWS
+import os
+import uuid
+import boto3
+
 from django.shortcuts import render, redirect
 # CBVs
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -11,6 +16,8 @@ from .models import Destination, Itinerary, Stop, Era, Photo
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
+# the following imports are for AWS
+
 
 # AB - home view
 def home (request):
@@ -95,3 +102,25 @@ def destinations_index(request, era_id):
   return render(request, 'destinations/index.html', {
     'destinations': destinations,
   })
+
+# --------Add photo function (when/if we decide to have it done) (/dests/)---------------- 
+
+# @login_required
+# def add_photo(request, destination_id):
+#   # photo-file maps to the "name" attr on the <input>
+#   photo_file = request.FILES.get('photo-file', None)
+#   if photo_file:
+#     s3 = boto3.client('s3')
+#     # Need a unique "key" (filename)
+#     # It needs to keep the same file extension
+#     # of the file that was uploaded (.png, .jpeg, etc.)
+#     key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+#     try:
+#       bucket = os.environ['S3_BUCKET']
+#       s3.upload_fileobj(photo_file, bucket, key)
+#       url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+#       Photo.objects.create(url=url, destination_id=destination_id)
+#     except Exception as e:
+#       print('An error occurred uploading file to S3')
+#       print(e)
+#   return redirect('dest_detail', destination_id=destination_id)
