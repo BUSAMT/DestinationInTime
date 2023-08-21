@@ -34,3 +34,9 @@ a.navbar li.nav-link {
   height: 10rem;
 }
 
+#time-img {
+  background-size: contain;
+  background-position: center;
+}
+
+
