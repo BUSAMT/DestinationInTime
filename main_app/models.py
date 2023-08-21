@@ -50,7 +50,6 @@ class Itinerary(models.Model):
         return reverse('itins_detail', kwargs={'itin_id': self.id})
     
 
-
 # Chosen destination model
 class Stop(models.Model):
     dest_name = models.CharField("Name", max_length=150)

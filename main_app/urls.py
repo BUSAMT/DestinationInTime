@@ -14,7 +14,7 @@ urlpatterns = [
     # user sign up -  /accounts
     path('accounts/signup/', views.signup, name='signup'),
 
-    # ------Destinations (/dests/)---------  
+    # ------Destinations (/dests/)--------- 
     path('<int:era_id>/', views.destinations_index, name='dest_index'),
 ]
 

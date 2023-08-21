@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Shaun to review</h1>
+<h1>Shaun to review {{ itins.itin_description }}</h1>
 
-<p>{{ itins.itin_description }}</p>
 
 <!-- {% for cat in cats %}
   <a href="{% url 'detail' cat.id %}">

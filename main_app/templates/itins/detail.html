@@ -3,6 +3,9 @@
 
 <div class="card-content">
     <span class="card-title">{{ itin.itin_description }}</span>
+
+    <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+
 </div>
 
 {% endblock %}
