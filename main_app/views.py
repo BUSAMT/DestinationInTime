@@ -5,22 +5,44 @@ from django.views.generic import ListView, DetailView
 # User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+# Models
+from .models import Destination, Itinerary, ChosDest, Era, Photo
 
- 
-# AB - home view
-def home (request):
-    return render(request, 'home.html')
 
 # ------Itineraries (/itins/)--------------- 
-# createView
-class ItinCreate(ListView):
-    pass
+# Itins_index 
+def itins_index(request):
+  # Itins for logged in user
+  itins = Itinerary.objects.filter(user=request.user)
+  return render(request, 'itins/index.html', {
+    'itins': itins
+  })
 
-# Itins_index
-# testing out CBVs for this instead of function like catcollector - tbc
-# Listview
-class ItinList(DetailView):
-    pass
+# Itins_Detail
+def itins_detail(request, itinerary_id):
+  itin = Itinerary.objects.get(id=itinerary_id)
+
+  return render(request, 'itins/detail.html', {
+    'itins': itins
+    # pass through destination
+    #  
+  })
+
+# createView
+class ItinCreate(CreateView):
+  model = Itinerary
+  field = '__all__'
+
+# updateView
+class ItinUpdate(UpdateView):
+  model = Itinerary
+  fields = '__all__'
+  # check everyone is happy to update all fields
+
+# deleteView
+class ItinDelete(DeleteView):
+  model = Itinerary
+  success_url = '/itins'
 
 #---------User--------------------------------
 # Using Joel's updated way so that the username is prefilled in if error
