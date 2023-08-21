@@ -76,6 +76,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'destinationsintime.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -126,7 +128,7 @@ STATIC_URL = 'static/'
 # User log in / log out
 # need to check if you still need a default even if you are using {{ next }}
 LOGIN_REDIRECT_URL = '/itins/'
-LOGIN_REDIRECT_URL = '/' 
+LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
