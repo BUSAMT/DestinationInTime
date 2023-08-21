@@ -28,10 +28,10 @@
                     <!-- {% if user.is_authenticated %} -->
                     <!-- will re-implement once authentication works -->
                         <li class="nav-item nav-link"><a href="/itins/">My Itinerary</a></li>
-                        <li class="nav-item nav-link"><a href="#">Log Out</a></li>
+                        <li class="nav-item nav-link"><a href="{% url 'logout' %}">Log Out</a></li>
                     <!-- {% else %} -->
                         <li class="nav-item nav-link"><a href="#">Sign Up</a></li>
-                        <li class="nav-item nav-link"><a href="#">Log In</a></li>
+                        <li class="nav-item nav-link"><a href="{% url 'login' %}">Log In</a></li>
                     <!-- {% endif %} -->
                 </ul>
             </div>

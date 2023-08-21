@@ -35,10 +35,12 @@ def itins_detail(request, itin_id):
 # createView
 class ItinCreate(CreateView):
   model = Itinerary
-  fields = ['init_travel_date', 
+  fields = ['init_name',
+            'itin_description',
+            'init_travel_date', 
             'end_travel_date', 
-            'user_budget', 
-            'itin_description']
+            'user_budget'
+            ]
 
   #overriding CBV properties to assign a user to a itinerary 
   def form_valid(self, form):
@@ -49,7 +51,12 @@ class ItinCreate(CreateView):
 # updateView
 class ItinUpdate(UpdateView):
   model = Itinerary
-  fields = '__all__'
+  fields = ['init_name',
+            'itin_description',
+            'init_travel_date', 
+            'end_travel_date', 
+            'user_budget'
+            ]
 
 # deleteView
 class ItinDelete(DeleteView):
