@@ -22,27 +22,29 @@ def itins_index(request):
   })
 
 # Itins_Detail
-def itins_detail(request, itinerary_id):
-  itin = Itinerary.objects.get(id=itinerary_id)
+def itins_detail(request, itin_id):
+  itin = Itinerary.objects.get(id=itin_id)
   # list of 'stops' associated with the an individual 'itinerary'
-  stops_a_user_has_added = itin.stops.all().values_list('id')
+  # stops_a_user_has_added = itin.stop.all().values_list('id')
 
   return render(request, 'itins/detail.html', {
     'itin': itin,
-    'stops': stops_a_user_has_added
+    # 'stops': stops_a_user_has_added
   })
 
 # createView
 class ItinCreate(CreateView):
   model = Itinerary
-  fields = '__all__'
+  fields = ['init_travel_date', 
+            'end_travel_date', 
+            'user_budget', 
+            'itin_description']
 
   #overriding CBV properties to assign a user to a itinerary 
   def form_valid(self, form):
     # form.instance is the unsaved itin object / self.request.user is the logged in user object
     form.instance.user = self.request.user
     return super().form_valid(form)
-
 
 # updateView
 class ItinUpdate(UpdateView):
