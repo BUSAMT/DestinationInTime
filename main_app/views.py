@@ -6,8 +6,11 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Models
-from .models import Destination, Itinerary, ChosDest, Era, Photo
+from .models import Destination, Itinerary, Chose_dest, Era, Photo
 
+# AB - home view
+def home (request):
+    return render(request, 'home.html')
 
 # ------Itineraries (/itins/)--------------- 
 # Itins_index 
@@ -23,7 +26,7 @@ def itins_detail(request, itinerary_id):
   itin = Itinerary.objects.get(id=itinerary_id)
 
   return render(request, 'itins/detail.html', {
-    'itins': itins
+    'itins': itin
     # pass through destination
     #  
   })
@@ -37,7 +40,6 @@ class ItinCreate(CreateView):
 class ItinUpdate(UpdateView):
   model = Itinerary
   fields = '__all__'
-  # check everyone is happy to update all fields
 
 # deleteView
 class ItinDelete(DeleteView):
