@@ -21,7 +21,10 @@ from .forms import AddStopForm, ItinCreateForm
 
 # AB - home view
 def home (request):
-    return render(request, 'home.html')
+    eras = Era.objects.all()
+    return render(request, 'home.html', {
+       'eras': eras,
+    })
 
 # ------Itineraries (/itins/)---------------
 # Itins_index
