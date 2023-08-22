@@ -16,8 +16,10 @@ urlpatterns = [
     path('itins/<int:pk>/update/', views.ItinUpdate.as_view(), name='itins_update'),
     path('itins/<int:pk>/delete/', views.ItinDelete.as_view(), name='itins_delete'),
 
-    # ------Spots (/itins/)-----------------------------  
-    path('itins/<int:itin_id>/addstop', views.add_a_spot, name='add_a_spot'),
+    # ------Stops (/itins/)-----------------------------  
+    path('itins/<int:itinerary_id>/addstop/', views.add_stop, name='add_stop'),
+    # ------Delete Stops (/itins/)-----------------------------  
+    path('itins/<int:itin_id>/delete/<int:stop_id>/', views.delete_stop, name='delete_stop'),
 
     #---------path to head directly to the admin site-------------
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),

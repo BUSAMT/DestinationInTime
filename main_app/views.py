@@ -3,7 +3,7 @@ import os
 import uuid
 import boto3
 
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 # CBVs
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -17,7 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
 # Form imports
-from .forms import StopForm
+from .forms import AddStopForm
 
 # AB - home view
 def home (request):
@@ -79,40 +79,72 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
 # ------Stops (/itins/)--------------- 
 # Create the form
 @login_required
-def add_a_spot(request, itin_id,):
-  form = StopForm(request.POST)
-  eras = Era.objects.all()
+# def add_a_stop(request, itin_id):
+#   # itinerary = Itininerary.objects.get(id=itin_id)
+#   eras = Era.objects.all()
+#   destination = Destination.objects.get(id=destination_id)
+  
+#   form = StopForm(request.POST)
 
-  if form.is_valid():
-    # display all eras_linked_to_destination
-    new_spot = form.save(commit=False)
-    # assoc with itin
-    new_spot.itinerary_id = itin_id
-    new_spot.save()
-    return redirect('itins_detail', itin_id=itin_id)
+#   if form.is_valid():
+#     # display all eras_linked_to_destination
+#     new_spot = form.save(commit=False)
+#     # assoc with itin
+#     new_spot.itinerary_id = itin_id
+#     new_spot.destination_id = destination.id
+#     new_spot.save()
+#     return redirect('itins_detail', itin_id=itin_id)
 
-  return render(request,'itins/add_stop.html', {
-  'form': form,
-  'eras' : eras
-  })
+#   return render(request,'itins/add_stop.html', {
+#   'form': form,
+#   'eras' : eras
+#   })
 
 # change from assoc with itin to assoc with dest icluding url and temaplte
-def add_a_spot(request, itin_id,):
-  form = StopForm(request.POST)
-  eras = Era.objects.all()
+# def add_a_stop(request, itin_id,):
+#   form = StopForm(request.POST)
+#   eras = Era.objects.all()
 
-  if form.is_valid():
-    # display all eras_linked_to_destination
-    new_spot = form.save(commit=False)
-    # assoc with itin
-    new_spot.itinerary_id = itin_id
-    new_spot.save()
-    return redirect('itins_detail', itin_id=itin_id)
+#   if form.is_valid():
+#     # display all eras_linked_to_destination
+#     new_spot = form.save(commit=False)
+#     # assoc with itin
+#     new_spot.itinerary_id = itin_id
+#     new_spot.save()
+#     return redirect('itins_detail', itin_id=itin_id)
 
-  return render(request,'itins/add_stop.html', {
-  'form': form,
-  'eras' : eras
-  })
+#   return render(request,'itins/add_stop.html', {
+#   'form': form,
+#   'eras' : eras
+#   })
+
+@login_required
+def add_stop(request, itinerary_id):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    eras = Era.objects.all()
+    destination_id = request.GET.get('destination_id')
+
+    if request.method == 'POST':
+        form = AddStopForm(request.POST)
+        if form.is_valid():
+            stop = form.save(commit=False)
+            stop.itinerary = itinerary
+            selected_destination_id = request.POST.get('destination')  # Get the selected destination ID
+            selected_destination = Destination.objects.get(id=selected_destination_id)
+            stop.destination = selected_destination  # Assign the selected destination to the stop
+            stop.save()
+            return redirect('itins_detail', itin_id=itinerary.id)
+    else:
+        form = AddStopForm()
+
+    return render(request, 'itins/add_stop.html', {'form': form, 'itinerary': itinerary, 'eras': eras, 'itinerary_id': itinerary_id})
+
+#---------Delete Stops--------------------------------
+@login_required
+class delete_stop(DeleteView):
+  model = Stop
+  succes_url = "itins/"
+
 
 
 #---------User--------------------------------

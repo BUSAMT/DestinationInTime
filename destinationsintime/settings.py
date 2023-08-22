@@ -135,11 +135,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-DATE_INPUT_FORMATS = [
-    '%Y-%m-%d',     # Year-Month-Day (e.g., 2023-08-25)
-    '%m/%d/%Y',     # Month/Day/Year (e.g., 08/25/2023)
-    '%m %d %Y',     # Custom format with spaces (e.g., 08 25 2023)
-]
+DATE_FORMAT = '%d.%m.%Y'
+USE_L10N = False
+DATE_INPUT_FORMATS = ['%m/%d/%Y']
 
 
 # Static files (CSS, JavaScript, Images)
