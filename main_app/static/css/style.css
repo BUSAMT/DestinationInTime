@@ -13,7 +13,8 @@ main {
 }
 
 a {
-  color: rgb(92, 169, 200);
+  /* color: rgb(92, 169, 200); */
+  color:rgb(216 139 51);
 }
 
 a.navbar li.nav-link {

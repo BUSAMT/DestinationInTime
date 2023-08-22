@@ -17,25 +17,27 @@
 <body>
     <header class="">
         <nav class="navbar navbar-expand-lg page-head">
-            <div class="container-fluid">
-                <div class="left-content text-start navbar-brand">
-                    <a class="" href="#">Home</a>
+            <div class="container justify-content-between">
+                <div class="left-content w-25 text-start navbar-brand">
+                    <a class="" href="{% url 'home' %}">Home</a>
                 </div>
-                <div class="main-title text-center navbar">
+                <div class="main-title w-50 text-center justify-content-center navbar mx-auto">
                     <h1>Destinations In Time</h1>
                 </div>
-                <ul class="navbar-nav right-content text-end">
-                    <!-- {% if user.is_authenticated %} -->
-                    <!-- will re-implement once authentication works -->
-                        <li class="nav-item nav-link"><a href="{% url 'itins_index' %}">My Itinerary</a></li>
-                        <li class="nav-item nav-link"><a href="{% url 'logout' %}">Log Out</a></li>
-                    <!-- {% else %} -->
-                        <li class="nav-item nav-link"><a href="{% url 'signup' %}">Sign Up</a></li>
-                        <li class="nav-item nav-link"><a href="{% url 'login' %}">Log In</a></li>
+                <div class="right-content w-25 justify-content-end">
+                    <ul class="navbar-nav text-end">
+                        <!-- {% if user.is_authenticated %} -->
+                        <!-- will re-implement once authentication works -->
+                            <li class="nav-item nav-link"><a href="{% url 'itins_index' %}">My Itinerary</a></li>
+                            <li class="nav-item nav-link"><a href="{% url 'logout' %}">Log Out</a></li>
+                        <!-- {% else %} -->
+                            <li class="nav-item nav-link"><a href="{% url 'signup' %}">Sign Up</a></li>
+                            <li class="nav-item nav-link"><a href="{% url 'login' %}">Log In</a></li>
                         <!-- {% endif %} -->
-                        <li class="nav-item nav-link"><a href="{% url 'admin:index' %}">Admin Log In</a></li>
-                        <!-- Sorry Shawn! messed with your header. Link to go directly to the admin site. -->
-                </ul>
+                            <li class="nav-item nav-link"><a href="{% url 'admin:index' %}">Admin Log In</a></li>
+                            <!-- Sorry Shawn! messed with your header. Link to go directly to the admin site. -->
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
