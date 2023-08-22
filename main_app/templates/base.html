@@ -26,16 +26,14 @@
                 </div>
                 <div class="right-content w-25 justify-content-end">
                     <ul class="navbar-nav text-end">
-                        <!-- {% if user.is_authenticated %} -->
-                        <!-- will re-implement once authentication works -->
+                        {% if user.is_authenticated %}
                             <li class="nav-item nav-link"><a href="{% url 'itins_index' %}">My Itinerary</a></li>
                             <li class="nav-item nav-link"><a href="{% url 'logout' %}">Log Out</a></li>
-                        <!-- {% else %} -->
+                        {% else %}
                             <li class="nav-item nav-link"><a href="{% url 'signup' %}">Sign Up</a></li>
                             <li class="nav-item nav-link"><a href="{% url 'login' %}">Log In</a></li>
-                        <!-- {% endif %} -->
+                        {% endif %}
                             <li class="nav-item nav-link"><a href="{% url 'admin:index' %}">Admin Log In</a></li>
-                            <!-- Sorry Shaun! messed with your header. Link to go directly to the admin site. -->
                     </ul>
                 </div>
             </div>
