@@ -17,7 +17,7 @@ urlpatterns = [
     path('itins/<int:pk>/delete/', views.ItinDelete.as_view(), name='itins_delete'),
 
     # ------Spots (/itins/)-----------------------------  
-    path('itins/<int:itin_id>/', views.add_a_spot, name='add_a_spot'),
+    path('itins/<int:itin_id>/addstop', views.add_a_spot, name='add_a_spot'),
 
     #---------path to head directly to the admin site-------------
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),

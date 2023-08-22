@@ -16,8 +16,8 @@ from .models import Destination, Itinerary, Stop, Era, Photo
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
-# the following imports are for AWS
-
+# Form imports
+from .forms import StopForm
 
 # AB - home view
 def home (request):
@@ -77,10 +77,42 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
   success_url = '/itins'
 
 # ------Stops (/itins/)--------------- 
+# Create the form
 @login_required
-def add_a_spot(request, itin_id):
-  pass
+def add_a_spot(request, itin_id,):
+  form = StopForm(request.POST)
+  eras = Era.objects.all()
 
+  if form.is_valid():
+    # display all eras_linked_to_destination
+    new_spot = form.save(commit=False)
+    # assoc with itin
+    new_spot.itinerary_id = itin_id
+    new_spot.save()
+    return redirect('itins_detail', itin_id=itin_id)
+
+  return render(request,'itins/add_stop.html', {
+  'form': form,
+  'eras' : eras
+  })
+
+# change from assoc with itin to assoc with dest icluding url and temaplte
+def add_a_spot(request, itin_id,):
+  form = StopForm(request.POST)
+  eras = Era.objects.all()
+
+  if form.is_valid():
+    # display all eras_linked_to_destination
+    new_spot = form.save(commit=False)
+    # assoc with itin
+    new_spot.itinerary_id = itin_id
+    new_spot.save()
+    return redirect('itins_detail', itin_id=itin_id)
+
+  return render(request,'itins/add_stop.html', {
+  'form': form,
+  'eras' : eras
+  })
 
 
 #---------User--------------------------------
