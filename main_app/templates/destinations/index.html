@@ -7,4 +7,8 @@
 <!-- placeholder, needs template tags -->
 <h1>Destinations In The Renaissance</h1>
 
+{% for destination in era.destinations.all %}
+<a href="{% url 'dest_detail' era.id destination.id %}">{{ destination.dest_name }}</a>
+{% endfor %}
+
 {% endblock %}

@@ -26,6 +26,10 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
 
     # ------Destinations (/dests/)--------- 
-    path('<int:era_id>/', views.destinations_index, name='dest_index'),
+    # AB - index page for destinations (aka detail page for an era)
+    path('eras/<int:era_id>/', views.destinations_index, name='dest_index'),
+    # AB - details page for destination
+    path('eras/<int:era_id>/destination/<int:dest_id>', views.destinations_detail, name="dest_detail")
+
 ]
 

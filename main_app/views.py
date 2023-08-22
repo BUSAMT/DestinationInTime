@@ -134,9 +134,17 @@ def signup(request):
 
 def destinations_index(request, era_id):
   era = Era.objects.get(id=era_id)
-  destinations = era.destination.all()
   return render(request, 'destinations/index.html', {
-    'destinations': destinations,
+    'era': era,
+  })
+
+def destinations_detail(request, era_id, dest_id):
+  era = Era.objects.get(id=era_id)
+  destination = Destination.objects.get(id=dest_id)
+
+  return render(request, 'destinations/detail.html', {
+    'era': era, 
+    'destination': destination,
   })
 
 # --------Add photo function (when/if we decide to have it done) (/dests/)---------------- 
