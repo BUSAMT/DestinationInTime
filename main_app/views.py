@@ -17,7 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
 # Form imports
-from .forms import AddStopForm
+from .forms import AddStopForm, ItinCreateForm
 
 # AB - home view
 def home (request):
@@ -46,30 +46,28 @@ def itins_detail(request, itin_id):
   })
 
 # createView
+
 class ItinCreate(LoginRequiredMixin, CreateView):
-  model = Itinerary
-  fields = ['init_name',
-            'itin_description',
-            'init_travel_date', 
-            'end_travel_date', 
-            'user_budget'
-            ]
+    model = Itinerary
+    form_class = ItinCreateForm 
+    # created a custom form for the stupid date thing that was bothering me
 
   #overriding CBV properties to assign a user to a itinerary 
-  def form_valid(self, form):
-    # form.instance is the unsaved itin object / self.request.user is the logged in user object
-    form.instance.user = self.request.user
-    return super().form_valid(form)
+    def form_valid(self, form):
+      # form.instance is the unsaved itin object / self.request.user is the logged in user object
+      form.instance.user = self.request.user
+      return super().form_valid(form)
+
 
 # updateView
 class ItinUpdate(LoginRequiredMixin, UpdateView):
-  model = Itinerary
-  fields = ['init_name',
-            'itin_description',
-            'init_travel_date', 
-            'end_travel_date', 
-            'user_budget'
-            ]
+    model = Itinerary
+    form_class = ItinCreateForm  # Using the custom form for updating
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+
 
 # deleteView
 class ItinDelete(LoginRequiredMixin, DeleteView):
