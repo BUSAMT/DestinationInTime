@@ -44,7 +44,7 @@ def itins_detail(request, itin_id):
   # list of 'stops' associated with the an individual 'itinerary'
   # stops_a_user_has_added = itin.stop.all()
 
-    return render(request, 'itins/itins_detail.html', {'itinerary': itinerary, 'stops': stops})
+    return render(request, 'itins/detail.html', {'itinerary': itinerary, 'stops': stops})
 
 # createView
 

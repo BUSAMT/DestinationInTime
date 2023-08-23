@@ -29,5 +29,3 @@ class ItinCreateForm(ModelForm):
         '%d/%m/%Y',  # Day/Month/Year (e.g., 25/08/2023)
             # Add more formats as needed
         ]
-    
-    

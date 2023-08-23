@@ -3,36 +3,44 @@
     
 <section class="container text-center">
     <div class="row">
-        <h1 class="title">{{ itin.init_name }}</h1>
+        <h1 class="title">{{ itinerary.init_name }}</h1>
     </div>
     <div class="row justify-content-center">
-        <a href="{% url 'itins_update' itin.id %}">Edit</a>
-        <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+        <a href="{% url 'itins_update' itinerary.id %}">Edit</a>
+        <a href="{% url 'itins_delete' itinerary.id %}">Delete</a>
     </div>
     <div class="padder"></div>
     <div class="row">
-        <h3>{{ itin.itin_description }}</h3>
+        <h3>{{ itinerary.itin_description }}</h3>
     </div>
     <div class="row">
         <div class="col">
-            <h5>Arrival Date: {{ itin.init_travel_date }}</h5>
-            <h5>Departure Date: {{ itin.end_travel_date }}</h5>
+            <h5>Arrival Date: {{ itinerary.init_travel_date }}</h5>
+            <h5>Departure Date: {{ itinerary.end_travel_date }}</h5>
         </div>
         <div class="col">
-            <h5>Budget: {{ itin.user_budget }}</h5>
+            <h5>Budget: {{ itinerary.user_budget }}</h5>
         </div>
     </div>
     <div class="padder"></div>
 
     <div class="row">
         <div class="destination-card">
-                {% for stop in itin.stop_set.all %}
-                    <p>Stop Details: {{ stop.dest_name }}</p>
-                    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
-                {% empty %}
-                    <a href="#"><h4>Add a stop to your itinerary</h4></a>
-
-                {% endfor %}
+            <h2>Stops:</h2>
+            <ul>
+              {% for stop in stops %}
+                <li>
+                  <p>Destination: {{ stop.dest_name }}</p>
+                  <p>description: {{ stop.dest_description }}</p>
+                  <p>Start Date: {{ stop.init_date_at_dest }}</p>
+                  <p>End Date: {{ stop.end_date_at_dest }}</p>
+                  <p>Comments: {{ stop.comments }}</p>
+                  
+                  <a href="{% url 'edit_stop' itinerary.id stop.id %}">Edit</a>
+                  <a href="{% url 'delete_stop' itinerary.id stop.id %}">Delete</a>
+                </li>
+              {% endfor %}
+            </ul>
         </div>
     </div>
 
