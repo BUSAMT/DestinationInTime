@@ -1,7 +1,32 @@
-<h1>Edit Stop</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
-</form>
-<a href=" url 'itins">Back to Itinerary</a>
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h1 class="title">Edit Stop</h1>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col d-flex align-items-start">
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Save</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <a href=" url 'itins">Back to Itinerary</a>
+        </div>
+        <div class="col"></div>
+    </div>
+</section>
+
+{% endblock %}

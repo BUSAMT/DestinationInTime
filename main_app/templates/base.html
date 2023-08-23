@@ -9,7 +9,7 @@
     <title>Destinations In Time</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Quintessential&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
@@ -22,7 +22,7 @@
                     <a class="" href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="main-title w-50 text-center justify-content-center navbar mx-auto">
-                    <h1>Destinations In Time</h1>
+                    <h1 id="main-heading">Destinations In Time</h1>
                 </div>
                 <div class="right-content w-25 justify-content-end">
                     <ul class="navbar-nav text-end">
@@ -44,6 +44,9 @@
         {% endblock %}
     </main>
 
+    <footer class="footer text-center">
+        <p>footer content to go here</p>
+    </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>

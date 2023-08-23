@@ -5,7 +5,8 @@ body {
   /* background-color: rgb(44, 44, 44); */
   background-color: rgb(0, 0, 0);
   color: goldenrod;
-  font-family: 'Quintessential', cursive;
+  /* font-family: 'Quintessential', cursive; */
+  font-family: 'Klee One', serif;
 }
 
 main {
@@ -13,10 +14,20 @@ main {
 }
 
 /* -------- links on all pages -------- */
+/* ~~~~~~~~~~~~~~~~~~~~ pick an option ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 a {
   /* color: rgb(92, 169, 200); */
   color:rgb(216 139 51);
+  /* color:rgb(104, 55, 0); */
   width: auto !important;
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* text-shadow: 1px 1px .5rem rgba(255, 217, 0, 0.75); */
+    text-shadow: 1px 1px 2px rgb(92, 54, 0), 0 0 1em rgb(204, 148, 17), 0 0 0.2em rgb(184, 135, 22);
+    /* text-shadow: 1px 1px 2px rgb(213, 118, 8), 0 0 1em rgb(218, 197, 45), 0 0 0.2em rgb(228, 172, 41); */
 }
 
 
@@ -26,10 +37,16 @@ a.navbar li.nav-link {
 }
 
 .page-head {
-  background-image: url(../images/papyrus-1920w.png);
-  color: black;
+  /* background-image: url(../images/papyrus-1920w.png); */
+  /* color: black; */
+  background-color: rgba(54, 54, 54, 0.75);
+  border-bottom: 0.5rem solid rgb(125, 115, 50);
 }
 
+#main-heading {
+    font-weight: 700;
+    font-size: 3rem;
+}
 
 /* -------- buttons on all pages -------- */
 .btn {
@@ -37,6 +54,7 @@ a.navbar li.nav-link {
   color: rgb(255, 217, 0);
   max-width: 20vh;
 }
+
 .btn:hover {
   background-color: rgb(232, 156, 25);
   color: rgb(54, 54, 54);
@@ -81,6 +99,11 @@ a.navbar li.nav-link {
     width: auto!important;
 }
 
+.home-link, h1, h2, h3, h4 {
+    font-family: 'Quintessential', cursive;
+}
+
+
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
 
@@ -89,6 +112,9 @@ a.navbar li.nav-link {
 
 
 /* -------- home.html Headings and positioning imgs -------- */
+
+
+
 .Ancient {
   position: relative;
   top: 12rem;

@@ -2,7 +2,7 @@
 {% block content %}
 
 <div id="home-title" class="title text-center">
-    <h2>Where In Time Would You Like To Travel?</h2>
+    <h1>Where In Time Would You Like To Travel?</h1>
 </div>
 
 <section class="container-fluid margin-auto text-center">
@@ -10,7 +10,7 @@
         <div class="col Ancient">
             {% for era in eras %}
             {% if era.era_name in "The Ancient World" %}
-            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
             <h4>{{ era.era_period }}</h4>
             {% else %}
             {% endif %}
@@ -21,7 +21,7 @@
         <div class="col Renaissance">
             {% for era in eras %}
             {% if era.era_name in "The Renaissance" %}
-            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
             <h4>{{ era.era_period }}</h4>
             {% else %}
             {% endif %}
@@ -43,7 +43,7 @@
         <div class="col Medieval">
             {% for era in eras %}
             {% if era.era_name in "The Medieval Age" %}
-            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
             <h4>{{ era.era_period }}</h4>
             {% else %}
             {% endif %}
@@ -54,7 +54,7 @@
         <div class="col Early">
             {% for era in eras %}
             {% if era.era_name in "The Early Modern Period" %}
-            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
             <h4>{{ era.era_period }}</h4>
             {% else %}
             {% endif %}
