@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ itinerary.init_name }}</h1>
+  <p>Description: {{ itinerary.itin_description }}</p>
+  <p>Start Date: {{ itinerary.init_travel_date }}</p>
+  <p>End Date: {{ itinerary.end_travel_date }}</p>
+  <p>Budget: {{ itinerary.user_budget }}</p>
+
+  <h2>Stops:</h2>
+  <ul>
+    {% for stop in stops %}
+      <li>
+        <p>Destination: {{ stop.dest_name }}</p>
+        <p>description: {{ stop.dest_description }}</p>
+        <p>Start Date: {{ stop.init_date_at_dest }}</p>
+        <p>End Date: {{ stop.end_date_at_dest }}</p>
+        <p>Comments: {{ stop.comments }}</p>
+        
+        <a href="{% url 'edit_stop' itinerary.id stop.id %}">Edit</a>
+        <a href="{% url 'delete_stop' itinerary.id stop.id %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

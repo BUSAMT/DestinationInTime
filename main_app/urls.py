@@ -22,7 +22,11 @@ urlpatterns = [
     path('eras/<int:era_id>/destination/<int:dest_id>/addstop/', views.add_stop, name='add_stop'),
     
     # ------Delete Stops (/itins/)-----------------------------  
-    path('itins/<int:itin_id>/<int:pk>/delete/', views.StopDelete.as_view(), name='delete_stop'),
+    # path('itins/<int:itin_id>/<int:pk>/delete/', views.StopDelete.as_view(), name='delete_stop'),
+
+     # trying a new thing
+    path('itins/<int:itinerary_id>/edit/<int:stop_id>/', views.edit_stop, name='edit_stop'),
+    path('itins/<int:itinerary_id>/delete/<int:stop_id>/', views.delete_stop, name='delete_stop'),
 
     #---------path to head directly to the admin site-------------
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),

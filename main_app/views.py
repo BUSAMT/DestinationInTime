@@ -39,14 +39,12 @@ def itins_index(request):
 # Itins_Detail
 @login_required 
 def itins_detail(request, itin_id):
-  itin = Itinerary.objects.get(id=itin_id)
+    itinerary = get_object_or_404(Itinerary, id=itin_id)
+    stops = itinerary.Itinerary_plan.all()  # Retrieve all stops associated with this itinerary
   # list of 'stops' associated with the an individual 'itinerary'
   # stops_a_user_has_added = itin.stop.all()
 
-  return render(request, 'itins/detail.html', {
-    'itin': itin,
-    # 'stops': stops_a_user_has_added,
-  })
+    return render(request, 'itins/itins_detail.html', {'itinerary': itinerary, 'stops': stops})
 
 # createView
 
@@ -78,49 +76,6 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
   success_url = '/itins'
 
 # ------Stops (/itins/)--------------- 
-# 1st attempt
-# def add_a_stop(request, itin_id):
-#   # itinerary = Itininerary.objects.get(id=itin_id)
-#   eras = Era.objects.all()
-#   destination = Destination.objects.get(id=destination_id)
-  
-#   form = StopForm(request.POST)
-
-#   if form.is_valid():
-#     # display all eras_linked_to_destination
-#     new_spot = form.save(commit=False)
-#     # assoc with itin
-#     new_spot.itinerary_id = itin_id
-#     new_spot.destination_id = destination.id
-#     new_spot.save()
-#     return redirect('itins_detail', itin_id=itin_id)
-
-#   return render(request,'itins/add_stop.html', {
-#   'form': form,
-#   'eras' : eras
-#   })
-
-# 2nd attempt
-# @login_required
-# def add_stop(request, itinerary_id):
-#     itinerary = Itinerary.objects.get(id=itinerary_id)
-#     eras = Era.objects.all()
-
-
-#     if request.method == 'POST':
-#         form = AddStopForm(request.POST)
-#         if form.is_valid():
-#             stop = form.save(commit=False)
-#             stop.itinerary = itinerary
-#             selected_destination_id = request.POST.get('destination')  # Get the selected destination ID
-#             selected_destination = Destination.objects.get(id=selected_destination_id)
-#             stop.destination = selected_destination  # Assign the selected destination to the stop
-#             stop.save()
-#             return redirect('itins_detail', itin_id=itinerary.id)
-#     else:
-#         form = AddStopForm()
-
-#     return render(request, 'itins/add_stop.html', {'form': form, 'itinerary': itinerary, 'eras': eras, 'itinerary_id': itinerary_id})
 
 @login_required
 def add_stop(request, era_id, dest_id):
@@ -149,9 +104,30 @@ def add_stop(request, era_id, dest_id):
          })
 
 #---------Delete Stops--------------------------------
-class StopDelete(LoginRequiredMixin, DeleteView):
-  model = Stop
-  success_url = "itins/"
+def delete_stop(request, itinerary_id, stop_id):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    stop = Stop.objects.get(id=stop_id)
+
+    if request.method == 'POST':
+        stop.delete()
+        return redirect('itins_detail', itin_id=itinerary_id)
+
+    return render(request, 'itins/delete_stop.html', {'itinerary': itinerary, 'stop': stop})
+
+#---------Edit Stops--------------------------------
+def edit_stop(request, itinerary_id, stop_id):
+    itinerary = Itinerary.objects.get(id=itinerary_id)
+    stop = Stop.objects.get(id=stop_id)
+
+    if request.method == 'POST':
+        form = AddStopForm(request.POST, instance=stop)
+        if form.is_valid():
+            form.save()
+            return redirect('itins_detail', itin_id=itinerary_id)
+    else:
+        form = AddStopForm(instance=stop)
+
+    return render(request, 'itins/edit_stop.html', {'form': form, 'itinerary': itinerary, 'stop': stop})
 
 
 
