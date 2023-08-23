@@ -28,6 +28,11 @@ a.navbar li.nav-link {
 
 .title {
   margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+#home-title {
+  margin-top: 1.5rem;
   margin-bottom: -3.5rem;
 }
 

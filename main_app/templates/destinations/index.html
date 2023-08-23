@@ -1,14 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- needs to import data from destinations, filtered for era chosen -->
+<section class="container">
+    <h1 class="text-center title">Destinations In {{ era.era_name }}</h1>
+    
+    {% for destination in era.destinations.all %}
+    <div class="row">
+        <div class="col">
+            <p>image placeholder</p>
+            {% for photo in aircraft.photo_set.all %}
+                <img class="img-fluid" src="{{photo.url}}">
+            {% empty %}
+                <div class="">No Photos Uploaded</div>
+            {% endfor %}
+        </div>
+        <div class="col">
+            <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
+
+        </div>
+        <div class="col">
+            <h4>{{ destination.dest_country }}</h4>
+        </div>
+    </div>
 
 
-<!-- placeholder, needs template tags -->
-<h1>Destinations In The Renaissance</h1>
+    {% endfor %}
 
-{% for destination in era.destinations.all %}
-<a href="{% url 'dest_detail' era.id destination.id %}">{{ destination.dest_name }}</a>
-{% endfor %}
+</section>
 
 {% endblock %}
