@@ -4,13 +4,17 @@
 <div class="card-content">
     <span class="card-title">
         {{ itin.init_name }}
-        {{ itin.itin_description }}</span>
+        <!-- {{ itin.itin_description }} -->
+    </span>
 
     <a href="{% url 'itins_update' itin.id %}">Edit</a>
     <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+    <a href="home">home</a>
 
-    <a href="{% url 'add_stop' itin.id  %}"> Add a stop to your itinerary</a>
-
+    {% for stop in itin.stop_set.all %}
+    <p>{{ stop.dest_name }}</p>
+    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
+    {% endfor %}
 
 </div>
 
