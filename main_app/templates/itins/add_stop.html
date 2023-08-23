@@ -12,20 +12,13 @@
 
 <form action="" method="POST">
   {% csrf_token %}
-  <label for="">Era:</label>
-  <select name="" id="era_picker">
-    {% for era in eras %}
-      <option value="{{ era.id }}">{{ era.era_name }}</option>
-    {% endfor %}
-  </select><br>
-  <label for="">Destination:</label>
-  {% for era in eras %}
-  <select name="destination" class="era_dest" id="dest_{{ era.id }}" style="display: none">
-    {% for dest in era.destinations.all %}
-    <option value="{{ dest.id }}">{{ dest.dest_name }}</option>
+  <label for="">Itinerary</label>
+  <select name="itinerary" id="{{ itin.id }}">
+    {% for itin in itins %}
+      <option value="{{ itin.id }}" >{{ itin.init_name }}</option>
     {% endfor %}
   </select>
-  {% endfor %}
+  
   <table>
     <!-- Shaun to review if this is what he wants eg table vs p vs else -->
     {{ form.as_table }}
@@ -33,16 +26,5 @@
   <input type="submit" value="Submit" class="btn">
 </form>
 
-<!-- function to detect when a user selects the era -->
-<script>
-  document.getElementById("era_picker").addEventListener("change", function(e) {
-    // hid menus
-    document.querySelectorAll('.era_dest').forEach((s) => s.style.display="none");
-    // unhid the selected child picker
-    document.getElementById("dest_" + this.value).style.display="block";
-  })
-  // this display the first option for eras 
-  document.querySelector('.era_dest').style.display="block";
-</script>
 
 {% endblock %}

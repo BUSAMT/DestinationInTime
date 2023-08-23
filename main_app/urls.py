@@ -17,9 +17,11 @@ urlpatterns = [
     path('itins/<int:pk>/delete/', views.ItinDelete.as_view(), name='itins_delete'),
 
     # ------Stops (/itins/)-----------------------------  
-    path('itins/<int:itinerary_id>/addstop/', views.add_stop, name='add_stop'),
+    # path('itins/<int:itinerary_id>/addstop/', views.add_stop, name='add_stop'),
+    # amended add stop with new path 
+    path('eras/<int:era_id>/destination/<int:dest_id>/addstop/', views.add_stop, name='add_stop'),
     # ------Delete Stops (/itins/)-----------------------------  
-    path('itins/<int:itin_id>/delete/<int:stop_id>/', views.delete_stop, name='delete_stop'),
+    path('itins/<int:itin_id>/<int:stop_id>/delete/', views.delete_stop, name='delete_stop'),
 
     #---------path to head directly to the admin site-------------
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
@@ -32,6 +34,7 @@ urlpatterns = [
     path('eras/<int:era_id>/', views.destinations_index, name='dest_index'),
     # AB - details page for destination
     path('eras/<int:era_id>/destination/<int:dest_id>', views.destinations_detail, name="dest_detail")
+    
 
 ]
 
