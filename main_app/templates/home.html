@@ -5,26 +5,29 @@
     <h2>Where In Time Would You Like To Travel?</h2>
 </div>
 
-{% for era in eras %}
-
 <section class="container-fluid margin-auto text-center">
     <div class="row align-items-end ">
         <div class="col Ancient">
+            {% for era in eras %}
             {% if era.era_name in "The Ancient World" %}
             <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
             <h4>{{ era.era_period }}</h4>
             {% else %}
-            <a href="#"><h3>The Ancient World</h3></a>
-            <h4>c. 3000 BCE - c. 400 CE</h4>
             {% endif %}
+            {% endfor %}
         </div>
-        <div class="col Medieval">
+        <div class="col Medieval-empty">
         </div>
         <div class="col Renaissance">
-            <a href="eras/2/"><h3>The Renaissance</h3></a>
-            <h4>c.1450 CE - c.1600 CE</h4>
+            {% for era in eras %}
+            {% if era.era_name in "The Renaissance" %}
+            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <h4>{{ era.era_period }}</h4>
+            {% else %}
+            {% endif %}
+            {% endfor %}
         </div>
-        <div class="col Early">
+        <div class="col Early-empty">
         </div>
     </div>
     <div class="row">
@@ -35,22 +38,29 @@
 
     </div>
     <div class="row">
-        <div class="col Ancient">
+        <div class="col Ancient-empty">
         </div>
         <div class="col Medieval">
-            <a href="eras/3/"><h3>The Medieval Age</h3></a>
-            <h4>c. 400 CE - c. 1450 CE</h4>
+            {% for era in eras %}
+            {% if era.era_name in "The Medieval Age" %}
+            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <h4>{{ era.era_period }}</h4>
+            {% else %}
+            {% endif %}
+            {% endfor %}
         </div>
-        <div class="col Renaissance">
+        <div class="col Renaissance-empty">
         </div>
         <div class="col Early">
-            <a href="eras/4/"><h3>The Early Modern Period</h3></a>
-            <h4>c. 1600 CE - c. 1750 CE</h4>
+            {% for era in eras %}
+            {% if era.era_name in "The Early Modern Period" %}
+            <a href="{% url 'dest_index' era.id %}"><h3>{{ era.era_name }}</h3></a>
+            <h4>{{ era.era_period }}</h4>
+            {% else %}
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>
-
-{% endfor %}
-
 
 {% endblock %}
