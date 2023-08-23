@@ -8,27 +8,33 @@
     <div class="padder"></div>
     <h1 class="title text-center">My Itineraries</h1>
     {% for itin in itins %}
-    <div class="destination-card">
+    <div class="destination-card mb-4">
+        <!-- to review with Shaun on the a link and what properties it has -->
+        <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none"></a>
         <div class="row">
-            <div class="col">
-                img
+            <div class="col d-flex align-items-start justify-content-center">
+                <h5 class="mb-0">My Itinerary</h5>
             </div>
-            <div class="col">
-                <h1><a href="{% url 'itins_detail' itin.id %}">{{ itin.init_name }}</a></h1>
-                {{ itin.itin_description }}
+            <div class="col d-flex align-items-start justify-content-center">
+                <h5 class="mb-0">Travel dates: </h5>
             </div>
-            <div class="col">
-                <a href="{% url 'itins_update' itin.id %}">Edit</a>
-                <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+            <div class="col d-flex align-items-start justify-content-center">
+                
             </div>
         </div>
-
+        <div class="row">
+            <div class="col d-flex align-items-center justify-content-center">
+                {{ itin.init_name }}
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+               {{ itin.init_travel_date|date:"d/m" }} to {{ itin.end_travel_date|date:"d/m" }}
+            </div>
+            <div class="col d-flex align-items-center justify-content-center ">
+            <a href="{% url 'itins_delete' itin.id %}" class="btn">x</a>
+            </div>
+        </div>
     </div>
-        
-    
-    
     {% endfor %}
-
 </section>
 
 {% endblock %}
