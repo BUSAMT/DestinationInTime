@@ -1,21 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
+    
+<section class="container text-center">
+    <div class="row">
+        <h1 class="title">{{ itin.init_name }}</h1>
+    </div>
+    <div class="row justify-content-center">
+        <a href="{% url 'itins_update' itin.id %}">Edit</a>
+        <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+    </div>
+    <div class="padder"></div>
+    <div class="row">
+        <h3>{{ itin.itin_description }}</h3>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5>Arrival Date: {{ itin.init_travel_date }}</h5>
+            <h5>Departure Date: {{ itin.end_travel_date }}</h5>
+        </div>
+        <div class="col">
+            <h5>Budget: {{ itin.user_budget }}</h5>
+        </div>
+    </div>
+    <div class="padder"></div>
 
-<div class="card-content">
-    <span class="card-title">
-        {{ itin.init_name }}
-        <!-- {{ itin.itin_description }} -->
-    </span>
+    <div class="row">
+        <div class="destination-card">
+                {% for stop in itin.stop_set.all %}
+                    <p>Stop Details: {{ stop.dest_name }}</p>
+                {% empty %}
+                    <a href="#"><h4>Add a stop to your itinerary</h4></a>
+                    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
 
-    <a href="{% url 'itins_update' itin.id %}">Edit</a>
-    <a href="{% url 'itins_delete' itin.id %}">Delete</a>
-    <a href="home">home</a>
+                {% endfor %}
+        </div>
+    </div>
 
-    {% for stop in itin.stop_set.all %}
-    <p>{{ stop.dest_name }}</p>
-    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
-    {% endfor %}
 
-</div>
+</section>
 
 {% endblock %}

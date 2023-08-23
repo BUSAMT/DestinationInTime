@@ -14,7 +14,7 @@
                 img
             </div>
             <div class="col">
-                <h1>{{ itin.init_name }}</h1>
+                <h1><a href="{% url 'itins_detail' itin.id %}">{{ itin.init_name }}</a></h1>
                 {{ itin.itin_description }}
             </div>
             <div class="col">
