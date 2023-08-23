@@ -28,9 +28,9 @@
         <div class="destination-card">
                 {% for stop in itin.stop_set.all %}
                     <p>Stop Details: {{ stop.dest_name }}</p>
+                    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
                 {% empty %}
                     <a href="#"><h4>Add a stop to your itinerary</h4></a>
-                    <a href="{% url 'delete_stop' itin.id stop.id %}"> Delete a stop to your itinerary</a>
 
                 {% endfor %}
         </div>
