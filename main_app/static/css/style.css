@@ -35,6 +35,7 @@ a.navbar li.nav-link {
 .btn {
   background-color: rgb(129, 128, 128);
   color: rgb(255, 217, 0);
+  max-width: 20vh;
 }
 .btn:hover {
   background-color: rgb(232, 156, 25);
@@ -75,6 +76,11 @@ a.navbar li.nav-link {
 .padder {
   height: 2rem;
 }
+
+.shrink {
+    width: auto!important;
+}
+
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
 

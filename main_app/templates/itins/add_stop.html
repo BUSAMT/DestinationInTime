@@ -2,29 +2,42 @@
 
 {% block content %}
 
-{% if object %}
-  <h1>Edit <span class="teal-text">#name of itin</span></h1>
-{% else %}
-  <h1>Add my stop to my Itinerary</h1>
-{% endif %}
+<section class="container">
+<!-- wtf is going on with this if object thing? -->
+    {% if object %}
+        <h1 class="text-center">Edit <span class="teal-text">#name of itin</span></h1>
+    {% else %}
+        <h1 class="title text-center">Add this Stop to my Itinerary</h1>
+    {% endif %}
+    
+    <div class="padder"></div>
+    <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form -->
+    <div class="container d-flex justify-content-center">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row ">
+                <div class="col-2">
+                    <label for="">Itinerary:</label>
+                </div>
+                <div class="col">
+                    <select name="itinerary" id="{{ itin.id }}">
+                        {% for itin in itins %}
+                            <option value="{{ itin.id }}" >{{ itin.init_name }}</option>
+                        {% endfor %}
+                        </select>
+                </div>
+            </div>
+            <div class="row">
+                <table>
+                <!-- Shaun to review if this is what he wants eg table vs p vs else -->
+                {{ form.as_table }}
+                </table>
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
 
- <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form -->
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <label for="">Itinerary</label>
-  <select name="itinerary" id="{{ itin.id }}">
-    {% for itin in itins %}
-      <option value="{{ itin.id }}" >{{ itin.init_name }}</option>
-    {% endfor %}
-  </select>
-  
-  <table>
-    <!-- Shaun to review if this is what he wants eg table vs p vs else -->
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit" class="btn">
-</form>
+    </div>
+</section>
 
 
 {% endblock %}

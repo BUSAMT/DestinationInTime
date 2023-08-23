@@ -2,20 +2,34 @@
 
 {% block content %}
 
-{% if object %}
-  <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
-{% else %}
-  <h1>Add to my Itinerary</h1>
-{% endif %}
-
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <table>
-    <!-- Shaun to review if this is what he wants eg table vs p vs else -->
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit" class="btn">
-</form>
+<!-- itin_edit form -->
+<section class="container">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <!-- wtf is going on with this if object thing? -->
+                {% if object %}
+                    <h1 class="title">Edit <span class="teal-text">{{ object.name }}</span></h1>
+                {% else %}
+                    <h1 class="title">Edit my Itinerary</h1>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col justify-content-center">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        <!-- Shaun to review if this is what he wants eg table vs p vs else -->
+                        {{ form.as_table }}
+                    </table>
+                    <input type="submit" value="Submit" class="btn">
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
