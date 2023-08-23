@@ -15,7 +15,7 @@
         </div>
         <div class="row bottom-row">
             <div class="col-4">
-                {% for photo in destination.photo_set.all %}
+            {% for photo in destination.photo_set.all %}
                 <img class="img-fluid" src="{{photo.url}}">
             {% empty %}
                 <div class="">No Photos Uploaded</div>

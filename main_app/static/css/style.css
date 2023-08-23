@@ -52,6 +52,11 @@ a.navbar li.nav-link {
   margin-bottom: 2.5rem;
 }
 
+.sub-title {
+  margin-top: .75rem;
+  margin-bottom: 1.25rem;
+}
+
 .truncate {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -64,6 +69,10 @@ a.navbar li.nav-link {
   padding: 2rem;
   border: 0.5rem solid rgb(125, 115, 50);
   border-radius: 5% / 50%;
+}
+
+.padder {
+  height: 2rem;
 }
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */

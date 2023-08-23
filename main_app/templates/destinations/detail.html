@@ -2,18 +2,38 @@
 {% block content %}
 
 <section class="container">
-    <div class="row text-center">
-        <h1>{{ destination.dest_name }}</h1>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
+    <div class="destination-detail">
+        <div class="row padder"></div>
+        <div class="row text-center">
+            <h1 class="title">{{ destination.dest_name }}</h1>
+            <h4 class="sub-title">{{ destination.dest_country }}</h4>
+        </div>
+        <div class="row">
+            <div class="col">
+            {% for photo in destination.photo_set.all %}
+                <img class="img-fluid" src="{{photo.url}}">
+            {% empty %}
+                <div class="">No Photos Uploaded</div>
+            {% endfor %}
+            <!-- TODO: if time / more photos, make a carousel -->
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h4>{{ destination.dest_address }}</h4>
+                    </div>
+                    <div class="col">
+                        <button class="btn">Add to Itinerary</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <p>{{ destination.dest_description }}</p>
+                </div>
+            </div>
+        </div>        
     </div>
 
-    <h4>{{ destination.dest_address }}</h4>
     
-    <p>{{ destination.dest_description }}</p>
 
 </section>
 
