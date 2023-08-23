@@ -21,7 +21,7 @@ from .forms import AddStopForm, ItinCreateForm
 
 # AB - home view
 def home (request):
-    eras = Era.objects.all()
+    eras = Era.objects.all().order_by('id')
     return render(request, 'home.html', {
        'eras': eras,
     })
