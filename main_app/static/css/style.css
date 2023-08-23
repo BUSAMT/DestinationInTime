@@ -58,6 +58,12 @@ a.navbar li.nav-link {
   white-space: nowrap;
 }
 
+.destination {
+  background-color: rgb(60, 60, 60);
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
 
 

@@ -5,27 +5,29 @@
     <h1 class="text-center title">Destinations In {{ era.era_name }}</h1>
     
     {% for destination in era.destinations.all %}
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
+    <div class="destination">
+        <div class="row top-row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+                <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
+            </div>
+            <div class="col-4"></div>
         </div>
-        <div class="col-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            {% for photo in destination.photo_set.all %}
+        <div class="row bottom-row">
+            <div class="col-4">
+                {% for photo in destination.photo_set.all %}
                 <img class="img-fluid" src="{{photo.url}}">
             {% empty %}
                 <div class="">No Photos Uploaded</div>
             {% endfor %}
-        </div>
-        <div class="col-4">
-            <h4>{{ destination.dest_country }}</h4>
-        </div>
-        <div class="col-4">
-            <h4>{{ destination.dest_address }}</h4>
-            <p class="truncate">{{ destination.dest_description }}</p>
+            </div>
+            <div class="col-8">
+                <h4>{{ destination.dest_country }}</h4>
+                <h4>{{ destination.dest_address }}</h4>
+                <p class="truncate">{{ destination.dest_description }}</p>
+            </div>
         </div>
     </div>
 
