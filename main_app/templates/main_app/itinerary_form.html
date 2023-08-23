@@ -7,11 +7,10 @@
     <div class="container">
         <div class="row text-center">
             <div class="col">
-                <!-- wtf is going on with this if object thing? -->
                 {% if object %}
-                    <h1 class="title">Edit <span class="teal-text">{{ object.name }}</span></h1>
+                    <h1 class="title">Edit <span class="teal-text">{{ object.init_name }}</span></h1>
                 {% else %}
-                    <h1 class="title">Edit my Itinerary</h1>
+                    <h1 class="title">Create An Itinerary</h1>
                 {% endif %}
             </div>
         </div>
