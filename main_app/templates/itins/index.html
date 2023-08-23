@@ -1,16 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Shaun to review - only showing logged users itins - perhaps need a 'add itinerary 
-    button' if there no itins eg when you sign up it goes to a blank page</h1>
+<!-- Shaun to review - only showing logged users itins - perhaps need a 'add itinerary  -->
+    <!-- button' if there no itins eg when you sign up it goes to a blank page -->
 
-{% for itin in itins %}
-<p>{{ itin.init_name }}
-{{ itin.itin_description }}
-<a href="{% url 'itins_update' itin.id %}">Edit</a>
-<a href="{% url 'itins_delete' itin.id %}">Delete</a>
-</p>
+<section class="container">
+    <div class="padder"></div>
+    <h1 class="title text-center">My Itineraries</h1>
+    {% for itin in itins %}
+    <div class="destination-card">
+        <div class="row">
+            <div class="col">
+                img
+            </div>
+            <div class="col">
+                <h1>{{ itin.init_name }}</h1>
+                {{ itin.itin_description }}
+            </div>
+            <div class="col">
+                <a href="{% url 'itins_update' itin.id %}">Edit</a>
+                <a href="{% url 'itins_delete' itin.id %}">Delete</a>
+            </div>
+        </div>
 
-{% endfor %}
+    </div>
+        
+    
+    
+    {% endfor %}
+
+</section>
 
 {% endblock %}
