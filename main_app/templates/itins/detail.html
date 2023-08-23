@@ -15,8 +15,8 @@
     </div>
     <div class="row">
         <div class="col">
-            <h5>Arrival Date: {{ itinerary.init_travel_date }}</h5>
-            <h5>Departure Date: {{ itinerary.end_travel_date }}</h5>
+            <h5>Arrival Date: {{ itinerary.init_travel_date|date:"Y-m-d" }}</h5>
+            <h5>Departure Date: {{ itinerary.end_travel_date|date:"Y-m-d" }}</h5>
         </div>
         <div class="col">
             <h5>Budget: {{ itinerary.user_budget }}</h5>
@@ -32,8 +32,8 @@
                 <li>
                   <p>Destination: {{ stop.dest_name }}</p>
                   <p>description: {{ stop.dest_description }}</p>
-                  <p>Start Date: {{ stop.init_date_at_dest }}</p>
-                  <p>End Date: {{ stop.end_date_at_dest }}</p>
+                  <p>Start Date: {{ stop.init_date_at_dest|date:"Y-m-d" }}</p>
+                  <p>End Date: {{ stop.end_date_at_dest|date:"Y-m-d" }}</p>
                   <p>Comments: {{ stop.comments }}</p>
                   
                   <a href="{% url 'edit_stop' itinerary.id stop.id %}">Edit</a>
