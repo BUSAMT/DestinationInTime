@@ -23,9 +23,10 @@
                 Travel dates:<br> {{ itin.init_travel_date|date:"d/m" }} to {{ itin.end_travel_date|date:"d/m" }}
                 </div>
                 <div class="col d-flex align-items-center justify-content-end ">
-                <a href="{% url 'itins_delete' itin.id %}" class="btn">x</a>
-                 <!-- to review with Shaun on the a link and what properties it has this shouldn't be a btn -->
-            <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none" class="btn">Detail</a>
+                    <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none; margin-right: 10px;" class="btn">DETAIL</a>
+                    <a href="{% url 'itins_create'%}" style="text-decoration: none; margin-right: 10px;" class="btn">CREATE</a>
+                    <a href="{% url 'itins_delete' itin.id %}" class="btn" style="margin-right: 10px;">DELETE</a>
+                    
                 </div>
             </div>
         </div>
