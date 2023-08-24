@@ -52,7 +52,7 @@ class Itinerary(models.Model):
         return reverse('itins_detail', kwargs={'itin_id': self.id})
     
 
-# Chosen destination model
+# Stop model
 class Stop(models.Model):
     dest_name = models.CharField("Name", max_length=150)
     dest_description = models.CharField("Description", max_length=3000)

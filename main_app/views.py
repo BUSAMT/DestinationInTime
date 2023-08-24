@@ -1,25 +1,27 @@
-# the following imports are for AWS
-import os
-import uuid
-import boto3
-
+# the following imports are for AWS, linked to the photo icebox feature
+# import os
+# import uuid
+# import boto3
 from django.shortcuts import get_object_or_404, render, redirect
 # CBVs
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
 # User
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
 # Models
-from .models import Destination, Itinerary, Stop, Era, Photo
+from .models import Destination, Itinerary, Stop, Era
+
 # Import the mixin for class-based views
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
-# Form imports
+
+# Custom form imports
 from .forms import AddStopForm, ItinCreateForm
 
-# AB - home view
+# ------Home page view (/home/)---------------
 def home (request):
     eras = Era.objects.all().order_by('id')
     return render(request, 'home.html', {
@@ -27,7 +29,7 @@ def home (request):
     })
 
 # ------Itineraries (/itins/)---------------
-# Itins_index
+# Itineraries index
 @login_required 
 def itins_index(request):
   # Itins for logged in user
@@ -36,22 +38,20 @@ def itins_index(request):
     'itins': itins
   })
 
-# Itins_Detail
+
+# Itinerary Details
 @login_required 
 def itins_detail(request, itin_id):
-    itinerary = get_object_or_404(Itinerary, id=itin_id)
+    itinerary = get_object_or_404(Itinerary, id=itin_id) 
     stops = itinerary.Itinerary_plan.all()  # Retrieve all stops associated with this itinerary
-  # list of 'stops' associated with the an individual 'itinerary'
-  # stops_a_user_has_added = itin.stop.all()
-
     return render(request, 'itins/detail.html', {'itinerary': itinerary, 'stops': stops})
 
-# createView
 
+# Create Itinerary
 class ItinCreate(LoginRequiredMixin, CreateView):
     model = Itinerary
     form_class = ItinCreateForm 
-    # created a custom form for the stupid date thing that was bothering me
+    # custom form overriding django one
 
   #overriding CBV properties to assign a user to a itinerary 
     def form_valid(self, form):
@@ -60,29 +60,26 @@ class ItinCreate(LoginRequiredMixin, CreateView):
       return super().form_valid(form)
 
 
-# updateView
+# Update Itinerary
 class ItinUpdate(LoginRequiredMixin, UpdateView):
     model = Itinerary
-    form_class = ItinCreateForm  # Using the custom form for updating
+    form_class = ItinCreateForm 
 
     def form_valid(self, form):
         return super().form_valid(form)
 
 
-
-# deleteView
+# Delete Itinerary
 class ItinDelete(LoginRequiredMixin, DeleteView):
   model = Itinerary
   success_url = '/itins'
 
 # ------Stops (/itins/)--------------- 
-
+# Create/add Sne Stop Associated the Itinerary
 @login_required
 def add_stop(request, era_id, dest_id):
     destination = Destination.objects.get(id=dest_id,)
-    # eras = Era.objects.all()
     itins = Itinerary.objects.filter(user=request.user)
-    # itinerary = Itinerary.objects.filter(id=itinerary_id)
 
     if request.method == 'POST':
         form = AddStopForm(request.POST)
@@ -103,7 +100,8 @@ def add_stop(request, era_id, dest_id):
        'itins' : itins
          })
 
-#---------Delete Stops--------------------------------
+
+#Delete One Stop
 @login_required
 def delete_stop(request, itinerary_id, stop_id):
     itinerary = Itinerary.objects.get(id=itinerary_id)
@@ -115,7 +113,7 @@ def delete_stop(request, itinerary_id, stop_id):
 
     return render(request, 'itins/delete_stop.html', {'itinerary': itinerary, 'stop': stop})
 
-#---------Edit Stops--------------------------------
+#Edit One Stop
 @login_required
 def edit_stop(request, itinerary_id, stop_id):
     itinerary = Itinerary.objects.get(id=itinerary_id)
@@ -148,8 +146,9 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-# --------Destination (/dests/)---------------- 
 
+# --------Destination (/dests/)---------------- 
+# Destinations Index
 def destinations_index(request, era_id):
   era = Era.objects.get(id=era_id)
   return render(request, 'destinations/index.html', {
@@ -165,7 +164,7 @@ def destinations_detail(request, era_id, dest_id):
     'destination': destination,
   })
 
-# --------Add photo function (when/if we decide to have it done) (/dests/)---------------- 
+# --------Add photo function (when/if we decide to have it done) Wish feature icebox(/dests/)---------------- 
 
 # @login_required
 # def add_photo(request, destination_id):
