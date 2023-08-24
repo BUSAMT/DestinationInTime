@@ -18,6 +18,9 @@
                 <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
                 <h4>{{ destination.dest_country }}</h4>
                 <p class="truncate">{{ destination.dest_description }}</p>
+                <a href="{% url 'dest_detail' era.id destination.id %}">
+                    <button class="btn">DETAIL</button>
+                </a>
             </div>
         </div>
     </div>
