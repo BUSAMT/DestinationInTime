@@ -205,9 +205,17 @@ a.navbar li.nav-link {
   font-weight: bold;
 }
 
+#functionality-crispy-form-container {
+  background-color: rgb(60, 60, 60);
+  margin-bottom: 3rem;
+  padding: 2rem;
+  max-width: 80vh;
+  font-weight: bold;
+}
+
 #hint_id_username {
   color: white;
-  padding-left: 2vmin;
+  padding-left: 3vmin;
 }
 
 #hint_id_password1 {
@@ -219,5 +227,5 @@ a.navbar li.nav-link {
 
 #hint_id_password2 {
   color: white;
-  padding-left: 2vmin;
+  padding-left: 3vmin;
 }

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 <!-- itin_edit form -->
 <section class="container">
-    <div class="container">
+    <div class="container" >
         <div class="row text-center">
             <div class="col">
                 {% if object %}
@@ -16,14 +17,23 @@
         </div>
         <div class="row">
             <div class="col"></div>
-            <div class="col justify-content-center">
+            <div class="col justify-content-center" id="functionality-crispy-form-container">
                 <form action="" method="POST">
                     {% csrf_token %}
                     <table>
-                        <!-- Shaun to review if this is what he wants eg table vs p vs else -->
-                        {{ form.as_table }}
+                        {{form.init_name|as_crispy_field}}
+                        {{form.itin_description|as_crispy_field}}
+                        {{form.init_travel_date|as_crispy_field}}
+                        {{form.end_travel_date|as_crispy_field}}
+                        {{form.user_budget|as_crispy_field}}
                     </table>
-                    <input type="submit" value="Submit" class="btn">
+                    <div class="padder container"></div>
+                    <div class="row">
+                        <div class="col d-flex flex-row justify-content-start">
+                            <input type="submit" value="Submit" class="btn">
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
             <div class="col"></div>
