@@ -27,7 +27,7 @@
                 <div class="right-content w-25 justify-content-end">
                     <ul class="navbar-nav text-end">
                         {% if user.is_authenticated %}
-                            <li class="nav-item nav-link"><a href="{% url 'itins_index' %}">My Itinerary</a></li>
+                            <li class="nav-item nav-link"><a href="{% url 'itins_index' %}">My Itineraries</a></li>
                             <li class="nav-item nav-link"><a href="{% url 'logout' %}">Log Out</a></li>
                         {% else %}
                             <li class="nav-item nav-link"><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -46,8 +46,14 @@
         {% endblock %}
     </main>
 
-    <footer class="footer text-center">
-        <p>footer content to go here</p>
+    <footer class="footer footer-view text-center">
+        <div class="container footer-content">
+            <p class="sub-title">All years used in site data are Circa (displayed as c.YYYY), which means approximate date is used since the exact details have been lost to time.
+                Destinations In Time was created in 2023 by the Historical Developers Collective Time Travel Agency. The current members of the Historical Developers Collective Time Travel Agency are:
+                Amtul Bushra, Stacey Fanner, Gamaliel Lara and Shaun Wellman. All site data was sourced from the public domain and no copyright infringment was inteded.
+                Any copyright material is property of its respective owner.
+            </p>
+        </div>
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 

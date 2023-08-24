@@ -31,7 +31,7 @@ a:hover {
 }
 
 
-/* -------- navbar on all pages -------- */
+/* -------- navbar/ footer on all pages -------- */
 a.navbar li.nav-link {
   color: rgb(95, 108, 113);
 }
@@ -46,6 +46,12 @@ a.navbar li.nav-link {
 #main-heading {
     font-weight: 700;
     font-size: 3rem;
+}
+
+.footer-view {
+    border-top: .25rem solid rgb(125, 115, 50);
+    background-color: rgb(54, 54, 54, 0.75);
+    color: rgb(151, 137, 44);
 }
 
 /* -------- buttons on all pages -------- */
@@ -103,6 +109,11 @@ a.navbar li.nav-link {
     font-family: 'Quintessential', cursive;
 }
 
+.placeholder {
+    background-color: rgba(211, 77, 24, 0.5);
+    text-align: center;
+    padding-top: 10%;
+}
 
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
