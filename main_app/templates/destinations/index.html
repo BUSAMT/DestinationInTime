@@ -3,20 +3,23 @@
 
 <section class="container">
     <h1 class="text-center title">Explore Destinations from {{ era.era_name }}</h1>
+    <div class="row era-desc">
+        <p> {{ era.era_description }} </p>
+    </div>
     
     {% for destination in era.destinations.all %}
     <div class="destination-card">
         <div class="row bottom-row">
             <div class="col-4">
-                {% for photo in destination.photo_set.all %}
-                <img class="img-fluid" src="{{photo.url}}">
-                {% empty %}
-                <div class="">No Photos Uploaded</div>
-                {% endfor %}
+                {% if destination.photo_set.first %}
+                    <img class="img-fluid" src="{{ destination.photo_set.first.url }}">
+                {% else %}
+                    <p>No Image Found</p>
+                {% endif %}
             </div>
-            <div class="col-8">
+            <div class="col-8 row">
                 <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
-                <h4>{{ destination.dest_country }}</h4>
+                <h3>{{ destination.dest_country }}</h3>
                 <p class="truncate">{{ destination.dest_description }}</p>
                 <a href="{% url 'dest_detail' era.id destination.id %}">
                     <button class="btn">DETAIL</button>
