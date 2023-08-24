@@ -8,27 +8,25 @@
     </div>
     
     {% for destination in era.destinations.all %}
-    <div class="destination-card">
-        <div class="row bottom-row">
-            <div class="col-4">
-                {% if destination.photo_set.first %}
-                    <img class="img-fluid" src="{{ destination.photo_set.first.url }}">
-                {% else %}
-                    <p>No Image Found</p>
-                {% endif %}
-            </div>
-            <div class="col-8 row">
-                <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
-                <h3>{{ destination.dest_country }}</h3>
-                <p class="truncate">{{ destination.dest_description }}</p>
-                <a href="{% url 'dest_detail' era.id destination.id %}">
-                    <button class="btn">DETAIL</button>
-                </a>
+        <div class="destination-card">
+            <div class="row bottom-row">
+                <div class="col-4">
+                    {% if destination.photo_set.first %}
+                        <img class="img-fluid" src="{{ destination.photo_set.first.url }}">
+                    {% else %}
+                        <p>No Image Found</p>
+                    {% endif %}
+                </div>
+                <div class="col-8 row">
+                    <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
+                    <h3>{{ destination.dest_country }}</h3>
+                    <p class="truncate">{{ destination.dest_description }}</p>
+                    <a href="{% url 'dest_detail' era.id destination.id %}">
+                        <button class="btn">DETAIL</button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-
     {% endfor %}
 
 </section>

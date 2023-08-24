@@ -9,7 +9,7 @@
         <div class="row text-center">
             <div class="col">
                 {% if object %}
-                    <h1 class="title">Edit <span class="teal-text">{{ object.init_name }}</span></h1>
+                    <h1 class="title">Edit <span class="">{{ object.init_name }}</span></h1>
                 {% else %}
                     <h1 class="title">Create An Itinerary</h1>
                 {% endif %}
@@ -27,7 +27,7 @@
                         {{form.end_travel_date|as_crispy_field}}
                         {{form.user_budget|as_crispy_field}}
                     </table>
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
                     <div class="row">
                         <div class="col d-flex flex-row justify-content-start">
                             <input type="submit" value="Submit" class="btn">

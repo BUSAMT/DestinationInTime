@@ -1,26 +1,26 @@
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  /* background-color: rgb(44, 44, 44); */
-  background-color: rgb(0, 0, 0);
-  color: goldenrod;
-  /* font-family: 'Quintessential', cursive; */
-  font-family: 'Klee One', serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /* background-color: rgb(44, 44, 44); */
+    background-color: rgb(0, 0, 0);
+    color: goldenrod;
+    /* font-family: 'Quintessential', cursive; */
+    font-family: 'Klee One', serif;
 }
 
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 /* -------- links on all pages -------- */
 /* ~~~~~~~~~~~~~~~~~~~~ pick an option ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 a {
-  /* color: rgb(92, 169, 200); */
-  color:rgb(216 139 51);
-  /* color:rgb(104, 55, 0); */
-  width: auto !important;
-  text-decoration: none;
+    /* color: rgb(92, 169, 200); */
+    color:rgb(216 139 51);
+    /* color:rgb(104, 55, 0); */
+    width: auto !important;
+    text-decoration: none;
 }
 
 a:hover {
@@ -33,14 +33,14 @@ a:hover {
 
 /* -------- navbar/ footer on all pages -------- */
 a.navbar li.nav-link {
-  color: rgb(95, 108, 113);
+    color: rgb(95, 108, 113);
 }
 
 .page-head {
-  /* background-image: url(../images/papyrus-1920w.png); */
-  /* color: black; */
-  background-color: rgba(54, 54, 54, 0.75);
-  border-bottom: 0.5rem solid rgb(125, 115, 50);
+    /* background-image: url(../images/papyrus-1920w.png); */
+    /* color: black; */
+    background-color: rgba(54, 54, 54, 0.75);
+    border-bottom: 0.5rem solid rgb(125, 115, 50);
 }
 
 #main-heading {
@@ -52,53 +52,54 @@ a.navbar li.nav-link {
     border-top: .25rem solid rgb(125, 115, 50);
     background-color: rgb(54, 54, 54, 0.75);
     color: rgb(151, 137, 44);
+    font-size: 0.8rem;
 }
 
 /* -------- buttons on all pages -------- */
 .btn {
-  background-color: rgb(129, 128, 128);
-  color: rgb(255, 217, 0);
-  /* max-width: 20vh; */
+    background-color: rgb(129, 128, 128);
+    color: rgb(255, 217, 0);
+    max-width: 20vh;
 }
 
 .btn:hover {
-  background-color: rgb(232, 156, 25);
-  color: rgb(54, 54, 54);
+    background-color: rgb(232, 156, 25);
+    color: rgb(54, 54, 54);
 }
 
 
 /* ++++++++++++++++++++ General purpose utility classes ++++++++++++++++++++ */
 
 .invert {
-  rotate: 180deg;
+    rotate: 180deg;
 }
 
 .title {
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .sub-title {
-  margin-top: .75rem;
-  margin-bottom: 1.25rem;
+    margin-top: .75rem;
+    margin-bottom: 1.25rem;
 }
 
 .truncate {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .destination-card {
-  background-color: rgb(60, 60, 60);
-  margin-bottom: 3rem;
-  padding: 2rem;
-  border: 0.5rem solid rgb(125, 115, 50);
-  border-radius: 5% / 50%;
+    background-color: rgb(60, 60, 60);
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border: 0.5rem solid rgb(125, 115, 50);
+    border-radius: 5% / 50%;
 }
 
 .padder {
-  height: 2rem;
+    height: 2rem;
 }
 
 .shrink {
@@ -121,19 +122,10 @@ a.navbar li.nav-link {
     object-fit: contain;
 }
 
-/* #carouselExampleindicators .carousel-item img {  
-    object-fit: contain;
-    object-position: center;
-    overflow: hidden;
-    height:50vh;
-} */
-
-/* .carousel-inner div {
-    height: 80vh;
-    object-fit: cover;
-} */
-
-
+.form-filler {
+    background-color: rgb(60, 60, 60);
+    padding: 2rem; 
+}
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
 
@@ -144,52 +136,51 @@ a.navbar li.nav-link {
 /* -------- home.html Headings and positioning imgs -------- */
 
 
-
 .Ancient {
-  position: relative;
-  top: 12rem;
-  left: 3rem;
+    position: relative;
+    top: 12rem;
+    left: 3rem;
 }
 
 .Renaissance {
-  position: relative;
-  top: 12rem;
-  right: 1rem;
+    position: relative;
+    top: 12rem;
+    right: 1rem;
 }
 
 .Medieval {
-  position: relative;
-  bottom: 12rem;
-  left: 2rem;
+    position: relative;
+    bottom: 12rem;
+    left: 2rem;
 }
 
 .Early {
-  position: relative;
-  bottom: 12rem;
-  right: 3.5rem;
+    position: relative;
+    bottom: 12rem;
+    right: 3.5rem;
 }
 
 #home-title {
-  margin-top: 1.5rem;
-  margin-bottom: -3.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: -3.5rem;
 }
 
 .home-img {
-  height: 10rem;
+    height: 10rem;
 }
 
 #time-img {
-  background-size: contain;
-  background-position: center;
+    background-size: contain;
+    background-position: center;
 }
 
 /* -------- destinations index-------- */
 
 .era-desc {
-  text-align: justify;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 2em;
+    text-align: justify;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 /* ######### Page specific IDs below ######### */
@@ -198,34 +189,34 @@ a.navbar li.nav-link {
 /* -------- Form up -------- */
 
 #crispy-form-container {
-  background-color: rgb(60, 60, 60);
-  margin-bottom: 3rem;
-  padding: 2rem;
-  max-width: 50vh;
-  font-weight: bold;
+    background-color: rgb(60, 60, 60);
+    margin-bottom: 3rem;
+    padding: 2rem;
+    max-width: 50vh;
+    font-weight: bold;
 }
 
 #functionality-crispy-form-container {
-  background-color: rgb(60, 60, 60);
-  margin-bottom: 3rem;
-  padding: 2rem;
-  max-width: 80vh;
-  font-weight: bold;
+    background-color: rgb(60, 60, 60);
+    margin-bottom: 3rem;
+    padding: 2rem;
+    max-width: 80vh;
+    font-weight: bold;
 }
 
 #hint_id_username {
-  color: white;
-  padding-left: 3vmin;
+    color: white;
+    padding-left: 3vmin;
 }
 
 #hint_id_password1 {
-  color: white;
+    color: white;
 }
 #hint_id_password1 ul {
-  list-style: none;
+    list-style: none;
 }
 
 #hint_id_password2 {
-  color: white;
-  padding-left: 3vmin;
+    color: white;
+    padding-left: 3vmin;
 }

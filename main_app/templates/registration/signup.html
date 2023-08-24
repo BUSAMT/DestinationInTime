@@ -5,7 +5,7 @@
 
 <div class="padder container"></div>
 <div class="row">
-  <div class="col text-center"><h1>Sign up to create custom itineraries</h1></div>
+    <div class="col text-center"><h1>Sign up to create bespoke Itineraries</h1></div>
 </div>
 <div class="padder container"></div>
 
@@ -13,33 +13,33 @@
 <p>{{ error_message }}</p>
 
 <div class="container d-flex justify-content-center" id="crispy-form-container">
-  <form method="POST" action="{% url 'signup' %}">
-    {% csrf_token %}
-    <div class="row mb-1">
-      <div class="">
-        {{form.username|as_crispy_field}}
-      </div>
-    </div>
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="row mb-1">
+            <div class="">
+                {{form.username|as_crispy_field}}
+            </div>
+        </div>
 
-    <div class="row mb-1">
-      <div class="">
-        {{form.password1|as_crispy_field}}
-      </div>
-    </div>
+        <div class="row mb-1">
+            <div class="">
+                {{form.password1|as_crispy_field}}
+            </div>
+        </div>
 
-    <div class="row mb-1">
-      <div class="">
-        {{form.password2|as_crispy_field}}
-      </div>
-    </div>
+        <div class="row mb-1">
+            <div class="">
+                {{form.password2|as_crispy_field}}
+            </div>
+        </div>
 
-    <div class="row">
-      <div class="col d-flex flex-row justify-content-center">
-        <input type="submit" class="btn" value="Sign Up">
-      </div>
-    </div>
+        <div class="row">
+            <div class="col d-flex flex-row justify-content-center">
+                <input type="submit" class="btn" value="Sign Up">
+            </div>
+        </div>
 
-  </form>
+    </form>
 </div>
 
 {% endblock %}

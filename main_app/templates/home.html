@@ -9,26 +9,24 @@
     <div class="row align-items-end ">
         <div class="col Ancient">
             {% for era in eras %}
-            {% if era.era_name in "The Ancient World" %}
-            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
-            <h4>{{ era.era_period }}</h4>
-            {% else %}
-            {% endif %}
+                {% if era.era_name in "The Ancient World" %}
+                    <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
+                    <h4>{{ era.era_period }}</h4>
+                {% else %}
+                {% endif %}
             {% endfor %}
         </div>
-        <div class="col Medieval-empty">
-        </div>
+        <div class="col Medieval-empty"></div>
         <div class="col Renaissance">
             {% for era in eras %}
-            {% if era.era_name in "The Renaissance" %}
-            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
-            <h4>{{ era.era_period }}</h4>
-            {% else %}
-            {% endif %}
+                {% if era.era_name in "The Renaissance" %}
+                    <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
+                    <h4>{{ era.era_period }}</h4>
+                {% else %}
+                {% endif %}
             {% endfor %}
         </div>
-        <div class="col Early-empty">
-        </div>
+        <div class="col Early-empty"></div>
     </div>
     <div class="row">
         <div class="col align-self-center">
@@ -42,25 +40,25 @@
         </div>
         <div class="col Medieval">
             {% for era in eras %}
-            {% if era.era_name in "The Medieval Age" %}
-            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
-            <h4>{{ era.era_period }}</h4>
-            {% else %}
-            {% endif %}
+                {% if era.era_name in "The Medieval Age" %}
+                    <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
+                    <h4>{{ era.era_period }}</h4>
+                {% else %}
+                {% endif %}
             {% endfor %}
         </div>
-        <div class="col Renaissance-empty">
-        </div>
+        <div class="col Renaissance-empty"></div>
         <div class="col Early">
             {% for era in eras %}
-            {% if era.era_name in "The Early Modern Period" %}
-            <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
-            <h4>{{ era.era_period }}</h4>
-            {% else %}
-            {% endif %}
+                {% if era.era_name in "The Early Modern Period" %}
+                    <a href="{% url 'dest_index' era.id %}"><h2 class="home-link">{{ era.era_name }}</h2></a>
+                    <h4>{{ era.era_period }}</h4>
+                {% else %}
+                {% endif %}
             {% endfor %}
         </div>
     </div>
+    
 </section>
 
 {% endblock %}

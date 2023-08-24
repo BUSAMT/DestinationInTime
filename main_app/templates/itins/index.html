@@ -15,7 +15,7 @@
             <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none">
                 <div class="row">
                     <h2 class=" text-start border-bottom mb-3">My '{{ itin.init_name }}' Itinerary</h2>
-               </div>
+                </div>
             </a>
             <div class="row justify-content-center align-items-center">
                 <div class="col">
@@ -36,17 +36,17 @@
         </div>
         {% endfor %}
 
-        <div class="padder container"></div>
+        <div class="padder"></div>
         <div class="row">
-          <div class="col d-flex flex-row justify-content-center">
-              <a href="{% url 'itins_create'%}">
-                  <button class="btn">CREATE ITINERARY</button>
-              </a>
-          </div>
-      </div>
-          </li>
-          <div class="padder container"></div>
-          <div class="padder container"></div>
+            <div class="col d-flex flex-row justify-content-center">
+                <a href="{% url 'itins_create'%}">
+                    <button class="btn">CREATE ITINERARY</button>
+                </a>
+            </div>
+        </div>
+            </li>
+            <div class="padder"></div>
+            <div class="padder"></div>
 
     {% else %}
     <div class="text-center">
@@ -54,6 +54,7 @@
         <a href="{% url 'itins_create' %}" class="btn">CREATE ITINERARY</a>
     </div>
     {% endif %}
+
 </section>
 
 {% endblock %}

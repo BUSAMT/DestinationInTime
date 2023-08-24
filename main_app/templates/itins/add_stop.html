@@ -6,26 +6,27 @@
 <section class="container">
 <!-- wtf is going on with this if object thing? -->
     {% if object %}
-        <h1 class="text-center">Edit <span class="teal-text">#name of itin</span></h1>
+        <h1 class="text-center">Edit <span class="">#name of itin</span></h1>
     {% else %}
         <h1 class="title text-center">Add this Stop to my Itinerary</h1>
     {% endif %}
     
     <div class="padder"></div>
-    <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form -->
+    <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form
+        ... do we or is this good as is? -->
     <div class="container d-flex justify-content-center" id="functionality-crispy-form-container">
         <form action="" method="POST">
             {% csrf_token %}
             <div class="row ">
-                <div class="col-2">
-                    <label for="">Itinerary:</label>
+                <div class="col">
+                    <label class="sub-title" for="">Itinerary:</label>
                 </div>
                 <div class="col">
                     <select name="itinerary" id="{{ itin.id }}">
                         {% for itin in itins %}
                             <option value="{{ itin.id }}" >{{ itin.init_name }}</option>
                         {% endfor %}
-                        </select>
+                    </select>
                 </div>
             </div>
             <div class="row">

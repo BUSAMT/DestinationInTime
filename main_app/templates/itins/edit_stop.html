@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 <section class="container">
-    <div class="row">
+    <div class="row text-center">
         <div class="col"></div>
         <div class="col">
             <h1 class="title">Edit Stop</h1>
@@ -14,20 +14,27 @@
     <div class="row">
         <div class="col"></div>
         <div class="col d-flex align-items-start" id="functionality-crispy-form-container">
-            <form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <button type="submit">Save</button>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{form.dest_name|as_crispy_field}}
+                    {{form.dest_description|as_crispy_field}}
+                    {{form.init_date_at_dest|as_crispy_field}}
+                    {{form.end_date_at_dest|as_crispy_field}}
+                    {{form.comments|as_crispy_field}}
+                </table>
+                <button class="btn" type="submit">Save</button>
             </form>
         </div>
         <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <a href="{% url 'itins_detail' itinerary.id %}">Back to Itinerary</a>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col d-flex justify-content-center">
+                <a href="{% url 'itins_detail' itinerary.id %}"><button class="btn">Back to Itinerary</button></a>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
+        <div class="padder"></div>
     </div>
 </section>
 

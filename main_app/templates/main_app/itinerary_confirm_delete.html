@@ -4,34 +4,37 @@
 {% load crispy_forms_tags %}
 
 <section class="container text-center">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <h1 class="title">Confirm Deletion</h1>
-            <p>Itinerary Deletion</p>
+    <div class="padder"></div>
+    <div class="">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col form-filler">
+                <h1 class="title">Confirm Deletion</h1>
+                <p>Itinerary Deletion</p>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <!-- wtf is going on with this object.name thing? -->
-            <h4 class="title">Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col form-filler">
+                <h4 class="title">Are you sure you want to delete <span class="">"{{ object.init_name }}"</span>?</h4>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <input type="submit" value="Delete" class="btn">
-                <a href="{% url 'itins_detail' object.id %}">Cancel</a>
-            </form>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col form-filler">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" class="btn">
+                </form>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col"></div>
+        <div class="padder"></div>
+        <a href="{% url 'itins_detail' object.id %}"><button class="btn">Cancel</button></a>
+        <div class="padder"></div>
     </div>
-    
 
 </section>
 {% endblock %}

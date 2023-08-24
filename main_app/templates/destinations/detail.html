@@ -9,48 +9,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <!-- <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner gallery"> -->
-
-                      <!-- <div class="carousel-item active">
-                        <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/03/a0003469/img/basic/a0003469_main.jpg?20200807174214" class="d-block screen w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://www.japan-guide.com/g18/3026_01.jpg" class="d-block screen w-100" alt="...">
-                      </div> -->
-                      <!-- <div class="carousel-item">
-                        <img src="https://www.payscathare.org/sites/payscathare/files/styles/ogimage/public/page/chateau-et-remparts-de-la-cite-de-carcassonne-deutsch-1509616843.jpg?itok=KVyzTlJV" class="d-block screen w-100" alt="...">
-                      </div> -->
-                        
-                        <!-- {% for photo in destination.photo_set.all %}
-                            <div class="carousel-item">
-                                <img src="{{photo.url}}" class="d-block screen w-100" alt="...">
-                            </div>
-                        {% empty %}
-                            <div class="text-center">No Photos Uploaded</div>
-                        {% endfor %}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                </div> -->
-                
+                <!-- carousel to hold multiple images for destination -->
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner gallery">
-                      <!-- <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                      </div> -->
                         {% for photo in destination.photo_set.all %}
                             <div class="carousel-item">
                                 <img src="{{photo.url}}" class="d-block screen w-100" alt="...">
@@ -67,41 +28,17 @@
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
-                  </div>
-            
+                </div>
             </div>
-
-            <!-- <div class="col gallery d-flex justify-content-center">
-            {% for photo in destination.photo_set.all %}
-                <img class="img-fluid" src="{{photo.url}}">
-            {% empty %}
-                <div class="text-center">No Photos Uploaded</div>
-            {% endfor %} -->
         </div>
-
-            <script>
-                document.querySelector('.gallery .carousel-item').classList.add('active')
-            </script>
-
-        </div>   
+    <!-- script to find first image and apply active class so the carousel works -->
+        <script>
+            document.querySelector('.gallery .carousel-item').classList.add('active')
+        </script>
+ 
         <div class="padder"></div>
-        
+        <!-- version for no map -->
         <div class="row">
-            <div class="col placeholder">
-                <h1 class="">MAP GOES HERE</h1>
-            </div>
-            <div class="col text-center">
-                <h3 class="sub-title">{{ destination.dest_country }}</h3>
-                <h4 class="sub-title">Address: {{ destination.dest_address }}</h4>
-                <a href="{% url 'add_stop' era.id destination.id %}">
-                    <button class="btn">Add to Itinerary</button>
-                </a>
-                <p class="sub-title destination-card">{{ destination.dest_description }}</p>
-            </div>
-        </div>
-
-<!-- version for no map  -->
-        <!-- <div class="row">
             <div class="col text-center">
                 <h3 class="sub-title">{{ destination.dest_country }}</h3>
                 <h4>Address: {{ destination.dest_address }}</h4>
@@ -115,17 +52,27 @@
         </div>
         <div class="row mt-3">
             <p class="sub-title destination-card">{{ destination.dest_description }}</p>
-        </div> -->
-
+        </div>
+                
+            <!-- version for iframe map  -->
+            <!-- <div class="row">
+                <div class="col placeholder">
+                    <h1 class="">MAP GOES HERE</h1>
+                </div>
+                <div class="col text-center">
+                    <h3 class="sub-title">{{ destination.dest_country }}</h3>
+                    <h4 class="sub-title">Address: {{ destination.dest_address }}</h4>
+                    <a href="{% url 'add_stop' era.id destination.id %}">
+                        <button class="btn">Add to Itinerary</button>
+                    </a>
+                    <p class="sub-title destination-card">{{ destination.dest_description }}</p>
+                </div>
+            </div> -->
+        
     </div>
     <div class="padder"></div>
     
-
 </section>
-
-
-
-
 
 
 {% endblock %}

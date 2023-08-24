@@ -5,7 +5,7 @@
     <div class="row container-fluid h4 pb-2 mb-4 border-bottom border-warning ">
         <h1 class="title">My Itinerary: 
         <br>    
-        <div class="padder container"></div>
+        <div class="padder"></div>
         {{ itinerary.init_name }}
         </h1>
     </div>
@@ -14,7 +14,7 @@
         <div class="row align-items-start">
             <div class="col">
             <h2>What are your plans?</h2>
-             <br> 
+            <br> 
             <h5> {{ itinerary.itin_description }}</h5>
         </div>
             <div class="col align-items-center">
@@ -27,13 +27,13 @@
         </div>
     </div>
 
-    <div class="padder container"></div>
+    <div class="padder"></div>
     
     <div class="row">
         <div class="destination-card">
             <h1 class=" border-bottom border-warning ">My Stops:</h1>
             <br>
-            <div class="padder container"></div>
+            <div class="padder"></div>
 
             {% if stops %}    
                 {% for stop in stops %}
@@ -41,51 +41,51 @@
                     <div class="row">
                     <div class="col">
                         <h4>Destination:</h4> 
-                        <div class="padder container"></div>
+                        <div class="padder"></div>
                         <div class="row justify-content-center">{{ stop.dest_name }}</div>
                     </div>
                     <div class="col">
-                        <h4>Description</h4> 
-                        <div class="padder container"></div>
+                        <h4>Description:</h4> 
+                        <div class="padder"></div>
                         <div class="row justify-content-center">{{ stop.dest_description }}</div>
                     </div>
                     <div class="col">
                         <h4>Arrival Date:</h4> 
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
                     <div class="row justify-content-center">{{ stop.init_date_at_dest|date:"d-m-Y" }}</div>
                     </div>
                     <div class="col">
                         <h4>Departure Date:</h4> 
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
                     <div class="row justify-content-center">{{ stop.end_date_at_dest|date:"d-m-Y" }}</div>
                     </div>
                     <div class="col">
                         <h4>Comments:</h4> 
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
                     <div class="row justify-content-center">{{ stop.comments }}</div>
                     </div>
                     </div>
                 </div>
 
                 <ul>
-                    <div class="padder container"></div>
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
+                    <div class="padder"></div>
                 <div class="row">
                     <div class="col d-flex flex-row justify-content-center"">
                         <a href="{% url 'edit_stop' itinerary.id stop.id %}">
-                            <button class="btn">Edit your Stop</button>
+                            <button class="btn">Edit my Stop</button>
                         </a>
                     </div>
                     <div class="col d-flex justify-content-center">
                         <a href="{% url 'delete_stop' itinerary.id stop.id %}">
-                            <button class="btn">Delete your Stop</button>
+                            <button class="btn">Delete my Stop</button>
                         </a>
                     </div>
                 </div>
                 </ul>
-                    <div class="padder container"></div>
-                    <div class="padder container border-bottom border-warning"></div>
-                    <div class="padder container"></div>
+                    <div class="padder"></div>
+                    <div class="padder border-bottom border-warning"></div>
+                    <div class="padder"></div>
                 {% endfor %}
             {% else %}
                 <div class="text-center">
@@ -94,26 +94,26 @@
                     <a href="{% url 'home'  %}" class="btn">Add Stops</a>
                 </div>
             {% endif %}
-            </div>
         </div>
+    </div>
+        
+    <div class="row">
+        <div class="col d-flex flex-row justify-content-center"">
+            <a href="{% url 'itins_update' itinerary.id %}">
+                <button class="btn">Edit Itinerary</button>
+            </a>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <a href="{% url 'itins_delete' itinerary.id %}">
+                <button class="btn">Delete Itinerary</button>
+            </a>
+        </div>
+        <div class="padder"></div>
+        <div class="padder"></div>
+    </div>
 
 
 </section>
-
-<div class="row">
-    <div class="col d-flex flex-row justify-content-center"">
-        <a href="{% url 'itins_update' itinerary.id %}">
-            <button class="btn">Edit your Itinerary</button>
-        </a>
-    </div>
-    <div class="col d-flex justify-content-center">
-        <a href="{% url 'itins_delete' itinerary.id %}">
-            <button class="btn">Delete your Itinerary</button>
-        </a>
-    </div>
-    <div class="padder container"></div>
-    <div class="padder container"></div>
-
-
+            
 {% endblock %}
 
