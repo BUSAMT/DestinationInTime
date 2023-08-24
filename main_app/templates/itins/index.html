@@ -11,26 +11,43 @@
     {% if itins %} 
         {% for itin in itins %}
         <div class="destination-card mb-4">
-           
-            <div class="row">
-                 <h2 class=" text-start border-bottom border-warning ">My '{{ itin.init_name }}' Itinerary</h2>
-            </div>
-            <div class="row text-center">
-                <div class="col d-flex align-items-center justify-content-center">
-                For:<br>{{ itin.itin_description }}
+            
+            <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none">
+                <div class="row">
+                    <h2 class=" text-start border-bottom mb-3">My '{{ itin.init_name }}' Itinerary</h2>
+               </div>
+            </a>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <h5 class="mb-0">Overview:</h5>
+                    <br>
+                    <p class="mb-0">{{ itin.itin_description }}</p>
                 </div>
-                <div class="col d-flex align-items-center justify-content-center">
-                Travel dates:<br> {{ itin.init_travel_date|date:"d/m" }} to {{ itin.end_travel_date|date:"d/m" }}
+                <div class="col">
+                    <h5 class="mb-0">Travel dates:</h5>
+                    <br> 
+                    <p class="mb-0">{{ itin.init_travel_date|date:"d/m/Y" }} to {{ itin.end_travel_date|date:"d/m/Y" }}</p>
                 </div>
-                <div class="col d-flex align-items-center justify-content-end ">
-                    <a href="{% url 'itins_detail' itin.id %}" style="text-decoration: none; margin-right: 10px;" class="btn">DETAIL</a>
-                    <a href="{% url 'itins_create'%}" style="text-decoration: none; margin-right: 10px;" class="btn">CREATE</a>
-                    <a href="{% url 'itins_delete' itin.id %}" class="btn" style="margin-right: 10px;">DELETE</a>
-                    
+                <div class="col d-flex justify-content-evenly">
+                    <a href="{% url 'itins_detail' itin.id %}" class="btn">DETAILS</a>
+                    <a href="{% url 'itins_delete' itin.id %}" class="btn">DELETE</a>
                 </div>
             </div>
         </div>
         {% endfor %}
+
+        <div class="padder container"></div>
+        <div class="row">
+          <div class="col d-flex flex-row justify-content-center">
+              <a href="{% url 'itins_create'%}">
+                  <button class="btn">CREATE ITINERARY</button>
+              </a>
+          </div>
+      </div>
+          </li>
+          <div class="padder container"></div>
+          <div class="padder container"></div>
+
     {% else %}
     <div class="text-center">
         <p>No itineraries found.</p>

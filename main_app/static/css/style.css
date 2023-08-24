@@ -52,7 +52,7 @@ a.navbar li.nav-link {
 .btn {
   background-color: rgb(129, 128, 128);
   color: rgb(255, 217, 0);
-  max-width: 20vh;
+  /* max-width: 20vh; */
 }
 
 .btn:hover {
