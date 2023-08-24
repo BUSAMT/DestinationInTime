@@ -2,28 +2,21 @@
 {% block content %}
 
 <section class="container">
-    <h1 class="text-center title">Destinations In {{ era.era_name }}</h1>
+    <h1 class="text-center title">Explore Destinations from {{ era.era_name }}</h1>
     
     {% for destination in era.destinations.all %}
     <div class="destination-card">
-        <div class="row top-row">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
-            </div>
-            <div class="col-4"></div>
-        </div>
         <div class="row bottom-row">
             <div class="col-4">
-            {% for photo in destination.photo_set.all %}
+                {% for photo in destination.photo_set.all %}
                 <img class="img-fluid" src="{{photo.url}}">
-            {% empty %}
+                {% empty %}
                 <div class="">No Photos Uploaded</div>
-            {% endfor %}
+                {% endfor %}
             </div>
             <div class="col-8">
+                <a href="{% url 'dest_detail' era.id destination.id %}"><h2>{{ destination.dest_name }}</h2></a>
                 <h4>{{ destination.dest_country }}</h4>
-                <h4>{{ destination.dest_address }}</h4>
                 <p class="truncate">{{ destination.dest_description }}</p>
             </div>
         </div>
