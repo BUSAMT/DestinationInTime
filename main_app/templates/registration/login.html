@@ -9,8 +9,7 @@
 </div>
 <div class="padder container"></div>
 
-<div class="container  d-flex justify-content-center">
-  <!-- shaun to review CSS -->
+<div class="container  d-flex justify-content-center" id="crispy-form-container">
 <form method="POST" action="{% url 'login' %}">
   {% csrf_token %}
   <div class="row mb-1">
@@ -25,7 +24,7 @@
     </div>
   </div>
   <input type="hidden" name="next" value="{{ next }}">
-  <button type="submit" class="btn">Log In</button>
+  <button type="submit" class="btn">Login</button>
 </form>
 
 {% endblock %}

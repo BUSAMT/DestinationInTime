@@ -1,17 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
-<h1>Sign up to create custom itineraries</h1>
+<div class="padder container"></div>
+<div class="row">
+  <div class="col text-center"><h1>Sign up to create custom itineraries</h1></div>
+</div>
+<div class="padder container"></div>
 
 <!-- only displays if there is a message as its set to an empty ''-->
-<p class="list-unstyled">Before we can process your sign up: {{ error_message }}</p>
+<p>{{ error_message }}</p>
 
-<!-- not sure if you wanted to change the form outline 
-    but I think the form displayed a paragraph looks the best -->
-<form method="POST" action="{% url 'signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="Sign Up">
-</form>
+<div class="container d-flex justify-content-center" id="crispy-form-container">
+  <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <div class="row mb-1">
+      <div class="">
+        {{form.username|as_crispy_field}}
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="">
+        {{form.password1|as_crispy_field}}
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="">
+        {{form.password2|as_crispy_field}}
+      </div>
+    </div>
+
+    <input type="submit" class="btn" value="Sign Up">
+  </form>
+</div>
 
 {% endblock %}

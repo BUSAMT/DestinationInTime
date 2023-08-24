@@ -173,3 +173,32 @@ a.navbar li.nav-link {
   margin-bottom: 2em;
 }
 
+/* ######### Page specific IDs below ######### */
+
+
+/* -------- Form up -------- */
+
+#crispy-form-container {
+  background-color: rgb(60, 60, 60);
+  margin-bottom: 3rem;
+  padding: 2rem;
+  max-width: 50vh;
+  font-weight: bold;
+}
+
+#hint_id_username {
+  color: white;
+  padding-left: 2vmin;
+}
+
+#hint_id_password1 {
+  color: white;
+}
+#hint_id_password1 ul {
+  list-style: none;
+}
+
+#hint_id_password2 {
+  color: white;
+  padding-left: 2vmin;
+}
