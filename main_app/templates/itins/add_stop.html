@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 <section class="container">
 <!-- wtf is going on with this if object thing? -->
@@ -11,7 +13,7 @@
     
     <div class="padder"></div>
     <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form -->
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center" id="functionality-crispy-form-container">
         <form action="" method="POST">
             {% csrf_token %}
             <div class="row ">
@@ -28,8 +30,11 @@
             </div>
             <div class="row">
                 <table>
-                <!-- Shaun to review if this is what he wants eg table vs p vs else -->
-                {{ form.as_table }}
+                    {{form.dest_name|as_crispy_field}}
+                    {{form.dest_description|as_crispy_field}}
+                    {{form.init_date_at_dest|as_crispy_field}}
+                    {{form.end_date_at_dest|as_crispy_field}}
+                    {{form.comments|as_crispy_field}}
                 </table>
                 <input type="submit" value="Submit" class="btn">
             </div>
