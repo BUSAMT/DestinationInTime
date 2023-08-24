@@ -79,9 +79,9 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def add_stop(request, era_id, dest_id):
-    destination = Destination.objects.get(id=dest_id)
+    destination = Destination.objects.get(id=dest_id,)
     # eras = Era.objects.all()
-    itins = Itinerary.objects.all()
+    itins = Itinerary.objects.filter(user=request.user)
     # itinerary = Itinerary.objects.filter(id=itinerary_id)
 
     if request.method == 'POST':
@@ -104,6 +104,7 @@ def add_stop(request, era_id, dest_id):
          })
 
 #---------Delete Stops--------------------------------
+@login_required
 def delete_stop(request, itinerary_id, stop_id):
     itinerary = Itinerary.objects.get(id=itinerary_id)
     stop = Stop.objects.get(id=stop_id)
@@ -115,6 +116,7 @@ def delete_stop(request, itinerary_id, stop_id):
     return render(request, 'itins/delete_stop.html', {'itinerary': itinerary, 'stop': stop})
 
 #---------Edit Stops--------------------------------
+@login_required
 def edit_stop(request, itinerary_id, stop_id):
     itinerary = Itinerary.objects.get(id=itinerary_id)
     stop = Stop.objects.get(id=stop_id)
