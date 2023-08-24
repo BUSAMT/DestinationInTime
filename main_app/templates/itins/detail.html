@@ -28,6 +28,13 @@
     </div>
 
     <div class="padder"></div>
+
+    <div class="text-center">
+        <p>Explore the Eras to Find your Destination.</p>
+        <a href="{% url 'home'  %}" class="btn">ADD STOP</a>
+    </div>
+
+    <div class="padder"></div>
     
     <div class="row">
         <div class="destination-card">
@@ -71,14 +78,14 @@
                     <div class="padder"></div>
                     <div class="padder"></div>
                 <div class="row">
-                    <div class="col d-flex flex-row justify-content-center"">
+                    <div class="col d-flex flex-row justify-content-center">
                         <a href="{% url 'edit_stop' itinerary.id stop.id %}">
-                            <button class="btn">Edit my Stop</button>
+                            <button class="btn">EDIT STOP</button>
                         </a>
                     </div>
                     <div class="col d-flex justify-content-center">
                         <a href="{% url 'delete_stop' itinerary.id stop.id %}">
-                            <button class="btn">Delete my Stop</button>
+                            <button class="btn">DELETE STOP</button>
                         </a>
                     </div>
                 </div>
@@ -91,21 +98,21 @@
                 <div class="text-center">
                     <p>You Have No Stops! Start Your Adventures!</p>
                     <p>Explore the Eras to Find your Destination.</p>
-                    <a href="{% url 'home'  %}" class="btn">Add Stops</a>
+                    <a href="{% url 'home'  %}" class="btn">ADD STOP</a>
                 </div>
             {% endif %}
         </div>
     </div>
         
     <div class="row">
-        <div class="col d-flex flex-row justify-content-center"">
+        <div class="col d-flex flex-row justify-content-center">
             <a href="{% url 'itins_update' itinerary.id %}">
-                <button class="btn">Edit Itinerary</button>
+                <button class="btn">EDIT ITINERARY</button>
             </a>
         </div>
         <div class="col d-flex justify-content-center">
             <a href="{% url 'itins_delete' itinerary.id %}">
-                <button class="btn">Delete Itinerary</button>
+                <button class="btn">DELETE ITINERARY</button>
             </a>
         </div>
         <div class="padder"></div>

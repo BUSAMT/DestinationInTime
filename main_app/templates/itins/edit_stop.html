@@ -22,14 +22,14 @@
                     {{form.end_date_at_dest|as_crispy_field}}
                     {{form.comments|as_crispy_field}}
                 </table>
-                <button class="btn" type="submit">Save</button>
+                <button class="btn" type="submit">SAVE</button>
             </form>
         </div>
         <div class="col"></div>
         <div class="row">
             <div class="col"></div>
             <div class="col d-flex justify-content-center">
-                <a href="{% url 'itins_detail' itinerary.id %}"><button class="btn">Back to Itinerary</button></a>
+                <a href="{% url 'itins_detail' itinerary.id %}"><button class="btn">Cancel</button></a>
             </div>
             <div class="col"></div>
         </div>
