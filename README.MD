@@ -20,6 +20,9 @@
 - Django
     - Python framework for full-stack development.
 
+- Crispy
+    - Used to format Django's built in forms with the help of their template packs.
+
 - PostgreSQL
     - Relational databases. In this particular project, we must have at least one 1:M and one M:M relationship
 
@@ -87,7 +90,7 @@ Using a Trello board and having constant communication with each other made thin
 All of us collaborate on every step of the project. Even with defined roles, we actively helped, debugged and coded anywhere that was needed. However, we all knew our roles. The project manager prioritised tasks according to our timelines, and we respected each other’s work.
 
 
-## **No project is excent of problems…**
+## **No project is exempt of problems…**
 
 - GIT/GITHUB:
     - Working in a collaborative environment is challenging. One of the main problems (at the beginning) was dealing with pushing and pulling data to and from Git and Git Hub. This was resolved by practicing constantly and refering back to previous lessons.
@@ -111,7 +114,7 @@ All of us collaborate on every step of the project. Even with defined roles, we 
 - Sharing code on GoogleDocs. It changes indentation and rearranges punctuation that is important to coding.
 
 ## **Memorable Moments:**
-- TEAMWORK! Managing to solve poblems without having to got to the instructors was a point of pride for the group.
+- TEAMWORK! Managing to solve problems without having to got to the instructors was a point of pride for the group.
 
 ## **Stretch goals and wishes for the project:**
 
@@ -123,7 +126,7 @@ The first steps to achieve that will be implementing some APIs like Google Maps 
 
 
 # **Thanks, everyone!**
-Sincerly…
+Sincerely…
 
 The Historical Developers Collective Time Travel Agency
 
