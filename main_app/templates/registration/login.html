@@ -1,14 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
-<h1>Placeholder for Shaun</h1>
+<div class="padder container"></div>
+<div class="row">
+  <div class="col text-center"><h1>Login to access your bespoke Itineraries</h1></div>
+</div>
+<div class="padder container"></div>
 
-<!-- shaun to review CSS -->
+<div class="container  d-flex justify-content-center">
+  <!-- shaun to review CSS -->
 <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="btn">Log In</button>
-  </form>
+  {% csrf_token %}
+  <div class="row mb-1">
+    <div class="">
+      {{form.username|as_crispy_field}}
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    <div class="">
+      {{form.password|as_crispy_field}}
+    </div>
+  </div>
+  <input type="hidden" name="next" value="{{ next }}">
+  <button type="submit" class="btn">Log In</button>
+</form>
 
 {% endblock %}
+</div>
