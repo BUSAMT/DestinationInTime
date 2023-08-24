@@ -8,14 +8,81 @@
             <h1 class="title">{{ destination.dest_name }}</h1>
         </div>
         <div class="row">
-            <div class="col  d-flex justify-content-center">
+            <div class="col">
+                <!-- <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner gallery"> -->
+
+                      <!-- <div class="carousel-item active">
+                        <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/03/a0003469/img/basic/a0003469_main.jpg?20200807174214" class="d-block screen w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://www.japan-guide.com/g18/3026_01.jpg" class="d-block screen w-100" alt="...">
+                      </div> -->
+                      <!-- <div class="carousel-item">
+                        <img src="https://www.payscathare.org/sites/payscathare/files/styles/ogimage/public/page/chateau-et-remparts-de-la-cite-de-carcassonne-deutsch-1509616843.jpg?itok=KVyzTlJV" class="d-block screen w-100" alt="...">
+                      </div> -->
+                        
+                        <!-- {% for photo in destination.photo_set.all %}
+                            <div class="carousel-item">
+                                <img src="{{photo.url}}" class="d-block screen w-100" alt="...">
+                            </div>
+                        {% empty %}
+                            <div class="text-center">No Photos Uploaded</div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div> -->
+                
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner gallery">
+                      <!-- <div class="carousel-item active">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="..." class="d-block w-100" alt="...">
+                      </div> -->
+                        {% for photo in destination.photo_set.all %}
+                            <div class="carousel-item">
+                                <img src="{{photo.url}}" class="d-block screen w-100" alt="...">
+                            </div>
+                        {% empty %}
+                            <div class="text-center">No Photos Uploaded</div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            
+            </div>
+
+            <!-- <div class="col gallery d-flex justify-content-center">
             {% for photo in destination.photo_set.all %}
                 <img class="img-fluid" src="{{photo.url}}">
             {% empty %}
                 <div class="text-center">No Photos Uploaded</div>
-            {% endfor %}
-            <!-- TODO: if time / more photos, make a carousel -->
-            </div>
+            {% endfor %} -->
+        </div>
+
+            <script>
+                document.querySelector('.gallery .carousel-item').classList.add('active')
+            </script>
+
         </div>   
         <div class="padder"></div>
         

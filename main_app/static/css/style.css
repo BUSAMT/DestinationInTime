@@ -115,6 +115,25 @@ a.navbar li.nav-link {
     padding-top: 10%;
 }
 
+.screen {
+    min-height: 80vh;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+/* #carouselExampleindicators .carousel-item img {  
+    object-fit: contain;
+    object-position: center;
+    overflow: hidden;
+    height:50vh;
+} */
+
+/* .carousel-inner div {
+    height: 80vh;
+    object-fit: cover;
+} */
+
+
 
 /* ++++++++++++++++++++ end utility section ++++++++++++++++++++ */
 
