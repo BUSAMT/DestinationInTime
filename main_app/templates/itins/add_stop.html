@@ -4,16 +4,11 @@
 {% load crispy_forms_tags %}
 
 <section class="container">
-<!-- wtf is going on with this if object thing? -->
-    {% if object %}
-        <h1 class="text-center">Edit <span class="">#name of itin</span></h1>
-    {% else %}
-        <h1 class="title text-center">Add this Stop to my Itinerary</h1>
-    {% endif %}
+    
+    <h1 class="title text-center">Add this Stop to my Itinerary</h1>
     
     <div class="padder"></div>
-    <!-- we'll need a container to align 2 x labels (eg Era and Destination) and the form
-        ... do we or is this good as is? -->
+
     <div class="container d-flex justify-content-center" id="functionality-crispy-form-container">
         <form action="" method="POST">
             {% csrf_token %}

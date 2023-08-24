@@ -12,7 +12,7 @@
             <div class="row bottom-row">
                 <div class="col-4">
                     {% if destination.photo_set.first %}
-                        <img class="img-fluid" src="{{ destination.photo_set.first.url }}">
+                        <img class="img-fluid list-img" src="{{ destination.photo_set.first.url }}">
                     {% else %}
                         <p>No Image Found</p>
                     {% endif %}

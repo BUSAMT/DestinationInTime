@@ -122,6 +122,12 @@ a.navbar li.nav-link {
     object-fit: contain;
 }
 
+.list-img {
+    min-height: 30vh;
+    max-height: 50vh;
+    object-fit: contain;
+}
+
 .form-filler {
     background-color: rgb(60, 60, 60);
     padding: 2rem; 
