@@ -2,34 +2,39 @@
 {% block content %}
     
 <section class="container text-center">
-    <div class="row container-fluid h4 pb-2 mb-4 border-bottom border-warning text-start">
-        <h1 class="title">Your Itinerary: {{ itinerary.init_name }}</h1>
+    <div class="row container-fluid h4 pb-2 mb-4 border-bottom border-warning ">
+        <h1 class="title">My Itinerary: 
+        <br>    
+        <div class="padder container"></div>
+        {{ itinerary.init_name }}
+        </h1>
     </div>
    
-    
-        <div class="row container text-start ">
-            <h2>What are your plans? <br> <br> {{ itinerary.itin_description }}</h2>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+            <h2>What are your plans?</h2>
+             <br> 
+            <h5> {{ itinerary.itin_description }}</h5>
         </div>
-    <div class="row">
-        <div class="padder container"></div>
-        <div class="padder container"></div>
+            <div class="col align-items-center">
+                <h5>Travel Start Date: {{ itinerary.init_travel_date|date:"d-m-Y" }}</h5>
+                <h5>Travel End Date: {{ itinerary.end_travel_date|date:"d-m-Y" }}</h5>
+        </div>
         <div class="col">
-            <h5>Itinerary Start Date: {{ itinerary.init_travel_date|date:"Y-m-d" }}</h5>
-            <h5>Itinerary End Date: {{ itinerary.end_travel_date|date:"Y-m-d" }}</h5>
-        </div>
-        <div class="col d-flex align-items-end">
-            <h5>What is your Budget? ${{ itinerary.user_budget|floatformat:2|safe }}</h5>
+            <h5>What is your Budget? <br> ${{ itinerary.user_budget|floatformat:2|safe }}</h5>
+            </div>
         </div>
     </div>
-    
+
     <div class="padder container"></div>
     
     <div class="row">
         <div class="destination-card">
-            <h2 class=" text-start border-bottom border-warning ">Your Stops:</h2>
+            <h1 class=" border-bottom border-warning ">My Stops:</h1>
             
             <div class="padder container"></div>
-            
+        {% if itins %}    
             {% for stop in stops %}
             <div class="container text-center">
                 <div class="row">
@@ -46,12 +51,12 @@
                   <div class="col">
                     <h4>Arrival Date:</h4> 
                   <div class="padder container"></div>
-                  <div class="row justify-content-center">{{ stop.init_date_at_dest|date:"Y-m-d" }}</div>
+                  <div class="row justify-content-center">{{ stop.init_date_at_dest|date:"d-m-Y" }}</div>
                   </div>
                   <div class="col">
                     <h4>Departure Date:</h4> 
                   <div class="padder container"></div>
-                  <div class="row justify-content-center">{{ stop.end_date_at_dest|date:"Y-m-d" }}</div>
+                  <div class="row justify-content-center">{{ stop.end_date_at_dest|date:"d-m-Y" }}</div>
                   </div>
                   <div class="col">
                     <h4>Comments:</h4> 
@@ -82,6 +87,13 @@
                 <div class="padder container"></div>
 
               {% endfor %}
+              {% else %}
+                <div class="text-center">
+                    <p>You Have No Stops! Start Your Adventures!</p>
+                    <p>Explore the Eras to Find your Destination.</p>
+                    <a href="{% url 'home'  %}" class="btn">Add Stops</a>
+                </div>
+        {% endif %}
             </ul>
         </div>
     </div>
