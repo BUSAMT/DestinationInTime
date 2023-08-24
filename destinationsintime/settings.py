@@ -88,23 +88,25 @@ WSGI_APPLICATION = 'destinationsintime.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'destinationsintime',
-    }
-}
-
+# # Local database
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': '<DATABASE>',
-#         'USER': '<USER>',
-#         'PASSWORD': '<PASSWORD>',
-#         'HOST': '<HOST>',
-#         'PORT': '<PORT>',
+#         'NAME': 'destinationsintime',
 #     }
 # }
+
+# # Heroku database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<DATABASE>',
+        'USER': '<USER>',
+        'PASSWORD': '<PASSWORD>',
+        'HOST': '<HOST>',
+        'PORT': '<PORT>',
+    }
+}
 
 
 # Password validation
@@ -148,8 +150,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
