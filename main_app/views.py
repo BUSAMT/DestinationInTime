@@ -33,7 +33,7 @@ def home (request):
 @login_required 
 def itins_index(request):
   # Itins for logged in user
-  itins = Itinerary.objects.filter(user=request.user)
+  itins = Itinerary.objects.filter(user=request.user).order_by('init_travel_date')
   return render(request, 'itins/index.html', {
     'itins': itins
   })
