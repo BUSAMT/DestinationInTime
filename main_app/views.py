@@ -43,7 +43,7 @@ def itins_index(request):
 @login_required 
 def itins_detail(request, itin_id):
     itinerary = get_object_or_404(Itinerary, id=itin_id) 
-    stops = itinerary.Itinerary_plan.all()  # Retrieve all stops associated with this itinerary
+    stops = itinerary.Itinerary_plan.all().order_by('date')  # Retrieve all stops associated with this itinerary
     return render(request, 'itins/detail.html', {'itinerary': itinerary, 'stops': stops})
 
 
