@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div id="home-title" class="title text-center">
-    <h1>Where In Time Would You Like To Travel?</h1>
+<div id="home-title" class="title text-center row">
+    <div class="col">
+        <h1>Where In Time Would You Like To Travel?</h1>
+    </div>
 </div>
 
 <section class="container-fluid margin-auto text-center">
@@ -58,7 +60,20 @@
             {% endfor %}
         </div>
     </div>
-    
+   
+    <div class="row">
+        <div class="col container">
+            <h4>About Destination In Time</h4>
+            <p>The Historical Developers Collective Time Travel Agency has assembled this site to allow the intrepid time traveller
+                 to find themselves inspiration in our Destinations. To start browsing, simply select an Era from the timeline 
+                 above. If you wish to create a bespoke itinerary, then sign up (or login) from the navbar at the top of the page. 
+                 From there you can navigate to My Itineraries and start creating a travel plan. Once you have an Itinerary you 
+                 can get back to exploring. When you find a Destination that you are inspired by you can add it to one of your 
+                 Itineraries. </p>
+        </div>
+    </div>
+    <div class="padder"></div>    
+
 </section>
 
 {% endblock %}
