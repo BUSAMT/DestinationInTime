@@ -59,9 +59,9 @@ class Stop(models.Model):
     init_date_at_dest = models.DateTimeField("Start")
     end_date_at_dest = models.DateTimeField("End")
     comments = models.TextField("Comments", max_length=3000)
-# O:M with destination
+# 1:M with destination
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='stop_destin')
-# O:M with itinerary
+# 1:M with itinerary
     itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE, related_name='Itinerary_plan')
 
     def __str__(self):

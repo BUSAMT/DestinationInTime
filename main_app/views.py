@@ -21,14 +21,14 @@ from django.contrib.auth.decorators import login_required
 # Custom form imports
 from .forms import AddStopForm, ItinCreateForm
 
-# ------Home page view (/home/)---------------
+# ------Home page view (Eras) (/home/)---------------
 def home (request):
     eras = Era.objects.all().order_by('id')
     return render(request, 'home.html', {
        'eras': eras,
     })
 
-# ------Itineraries (/itins/)---------------
+# ------Itineraries (/itins/)-------------------------------------------
 # Itineraries index
 @login_required 
 def itins_index(request):
@@ -74,8 +74,8 @@ class ItinDelete(LoginRequiredMixin, DeleteView):
   model = Itinerary
   success_url = '/itins'
 
-# ------Stops (/itins/)--------------- 
-# Create/add Sne Stop Associated the Itinerary
+# ------Stops (/itins/)----------------------------------------------- 
+# Create/add one Stop associated the itinerary
 @login_required
 def add_stop(request, era_id, dest_id):
     destination = Destination.objects.get(id=dest_id,)
@@ -131,7 +131,7 @@ def edit_stop(request, itinerary_id, stop_id):
 
 
 
-#---------User--------------------------------
+#---------User------------------------------------------------------------------
 # Using Joel's updated way so that the username is prefilled in if error
 def signup(request):
   error_message = ''
@@ -147,7 +147,7 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-# --------Destination (/dests/)---------------- 
+# --------Destination (/dests/)------------------------------------------ 
 # Destinations Index
 def destinations_index(request, era_id):
   era = Era.objects.get(id=era_id)
@@ -164,7 +164,7 @@ def destinations_detail(request, era_id, dest_id):
     'destination': destination,
   })
 
-# --------Add photo function (when/if we decide to have it done) Wish feature icebox(/dests/)---------------- 
+# --------Add photo function  - Wish list icebox(/dests/)---------------- 
 
 # @login_required
 # def add_photo(request, destination_id):
